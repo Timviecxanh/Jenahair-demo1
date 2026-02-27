@@ -149,7 +149,7 @@ async function runBackupWithDriveClient(
 
     // Generate and upload the deploy guide
     console.log('📝 Generating deploy guide (OAuth flow)...');
-    const deployGuide = generateDeployGuide('smashtravelvietnam.com');
+    const deployGuide = generateDeployGuide('jenahair.com');
     const guideStream = new Readable();
     guideStream.push(deployGuide);
     guideStream.push(null);
@@ -176,7 +176,7 @@ async function runBackupWithDriveClient(
 
     // Create .env.example file
     const envExample = `# Docker
-DOCKER_IMAGE=your-dockerhub-username/smashtravelvietnam.com
+DOCKER_IMAGE=your-dockerhub-username/jenahair.com
 DOCKER_CONTAINER_NAME=nextjs_app
 VERSION=1.0.0-alpha
 
@@ -186,11 +186,11 @@ POSTGRES_USER=smashtravel_user
 POSTGRES_PASSWORD=your_secure_password_here
 
 # Admin accounts
-ADMIN_EMAIL=admin@smashtravelvietnam.com
+ADMIN_EMAIL=admin@jenahair.com
 ADMIN_PASSWORD=your_admin_password
 ADMIN_NAME=Admin
 
-SUPADMIN_EMAIL=supadmin@smashtravelvietnam.com
+SUPADMIN_EMAIL=supadmin@jenahair.com
 SUPADMIN_PASSWORD=your_supadmin_password
 SUPADMIN_NAME=Super Admin
 `;
@@ -232,7 +232,10 @@ SUPADMIN_NAME=Super Admin
     };
   } catch (error) {
     console.error('Backup (OAuth) error:', error);
-    const message = error instanceof Error ? error.message : 'Unknown error occurred during backup';
+    const message =
+      error instanceof Error
+        ? error.message
+        : 'Unknown error occurred during backup';
     return {
       success: false,
       message,
@@ -264,4 +267,3 @@ export async function createBackupWithOAuthAction(
 
   return runBackupWithDriveClient(drive, folderId);
 }
-

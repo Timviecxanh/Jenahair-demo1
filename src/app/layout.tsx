@@ -14,12 +14,13 @@ import type { Metadata } from 'next';
 import { MantineConfigProvider } from '@/libs/mantine/mantine-config-provider';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://smashtravelvietnam.com'),
+  metadataBase: new URL('https://jenahair.com'),
   title: {
     default: 'Smash Travel Vietnam',
     template: '%s | Smash Travel Vietnam',
   },
-  description: 'Discover Vietnam with Smash & Travel Vietnam (STV) - specialized travel, pickleball adventures, and customized packages across 33+ destinations. Book your Vietnam adventure today!',
+  description:
+    'Discover Vietnam with Smash & Travel Vietnam (STV) - specialized travel, pickleball adventures, and customized packages across 33+ destinations. Book your Vietnam adventure today!',
   applicationName: 'Smash Travel Vietnam',
   openGraph: {
     siteName: 'Smash Travel Vietnam',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
   },
   alternates: {
-    canonical: 'https://smashtravelvietnam.com',
+    canonical: 'https://jenahair.com',
   },
 };
 
@@ -36,7 +37,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>

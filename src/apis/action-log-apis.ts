@@ -1,5 +1,5 @@
-import { IActionLog } from "@/interfaces/action-log-interface";
-import { api } from "./_base";
+import { IActionLog } from '@/interfaces/action-log-interface';
+import { api } from './_base';
 
 export interface ActionLogFilterParams {
   entityType?: string;
@@ -11,13 +11,16 @@ export async function getAllActionLogsApi(filter?: ActionLogFilterParams) {
   if (filter?.entityType) params.append('entityType', filter.entityType);
   if (filter?.userId) params.append('userId', filter.userId);
   const queryString = params.toString() ? `?${params.toString()}` : '';
-  return api<IActionLog[]>(`/admin/action-logs${queryString}`, {
+  return api<IActionLog[]>(`/action-logs/admin${queryString}`, {
     method: 'GET',
   });
 }
 
-export async function getActionLogsByEntityApi(entityType: string, entityId: string) {
-  return api<IActionLog[]>(`/admin/action-logs/${entityType}/${entityId}`, {
+export async function getActionLogsByEntityApi(
+  entityType: string,
+  entityId: string
+) {
+  return api<IActionLog[]>(`/action-logs/admin/${entityType}/${entityId}`, {
     method: 'GET',
   });
 }

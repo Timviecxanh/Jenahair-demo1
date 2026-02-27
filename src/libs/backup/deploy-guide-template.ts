@@ -1,4 +1,4 @@
-export const generateDeployGuide = (domainName: string = 'smashtravelvietnam.com') => `
+export const generateDeployGuide = (domainName: string = 'jenahair.com') => `
 # 🚀 HƯỚNG DẪN DEPLOY - ${domainName.toUpperCase()}
 
 > **Backup Date**: ${new Date().toISOString()}

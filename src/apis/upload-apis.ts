@@ -1,4 +1,4 @@
-import { api } from "./_base";
+import { api } from './_base';
 
 export interface UploadResponse {
   url: string;
@@ -9,15 +9,15 @@ export async function uploadFileApi(file: File, folder?: string) {
   const formData = new FormData();
   formData.append('file', file);
   const queryString = folder ? `?folder=${encodeURIComponent(folder)}` : '';
-  return api<UploadResponse>(`/admin/upload${queryString}`, {
+  return api<UploadResponse>(`/upload/admin${queryString}`, {
     method: 'POST',
     body: formData,
   });
 }
 
 export async function deleteUploadedFileApi(relativePath: string) {
-  return api<void>(`/admin/upload`, {
+  return api<void>(`/upload/admin`, {
     method: 'DELETE',
-    body: JSON.stringify({path: relativePath}),
+    body: JSON.stringify({ path: relativePath }),
   });
 }

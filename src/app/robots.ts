@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://smashtravelvietnam.com';
+const BASE_URL = 'https://jenahair.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -14,4 +14,3 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }
-

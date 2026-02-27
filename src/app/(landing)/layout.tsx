@@ -23,11 +23,11 @@ export async function generateMetadata(): Promise<Metadata> {
       openGraph: {
         title: config?.websiteTitle || '',
         description: config?.websiteDescription || '',
-        url: 'https://smashtravelvietnam.com',
+        url: 'https://jenahair.com',
         siteName: config?.websiteTitle || '',
         images: [
           {
-            url: 'https://smashtravelvietnam.com/images/vietnam-sightseeing-sample.jpg',
+            url: 'https://jenahair.com/images/vietnam-sightseeing-sample.jpg',
             width: 1200,
             height: 630,
             alt: 'Vietnam Sightseeing',
@@ -37,25 +37,27 @@ export async function generateMetadata(): Promise<Metadata> {
         type: 'website',
       },
       alternates: {
-        canonical: 'https://smashtravelvietnam.com',
-      }
+        canonical: 'https://jenahair.com',
+      },
     };
   } catch {
     // Fallback to default metadata if config not found
     return {
       title: 'Smash Travel Vietnam',
-      description: 'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
+      description:
+        'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
       icons: {
         icon: '/favicon.ico',
       },
       openGraph: {
         title: 'Smash Travel Vietnam',
-        description: 'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
-        url: 'https://smashtravelvietnam.com',
+        description:
+          'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
+        url: 'https://jenahair.com',
         siteName: 'Smash Travel Vietnam',
         images: [
           {
-            url: 'https://smashtravelvietnam.com/images/vietnam-sightseeing-sample.jpg',
+            url: 'https://jenahair.com/images/vietnam-sightseeing-sample.jpg',
             width: 1200,
             height: 630,
             alt: 'Vietnam Sightseeing',
@@ -65,13 +67,17 @@ export async function generateMetadata(): Promise<Metadata> {
         type: 'website',
       },
       alternates: {
-        canonical: 'https://smashtravelvietnam.com',
+        canonical: 'https://jenahair.com',
       },
     };
   }
 }
 
-export default async function LandingLayout({ children }: { children: React.ReactNode }) {
+export default async function LandingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <MaintenanceGuard>
       <div className={classes.landingLayout}>
@@ -80,7 +86,7 @@ export default async function LandingLayout({ children }: { children: React.Reac
         </Container>
         {children}
         <LandingFooter />
-      </div >
+      </div>
     </MaintenanceGuard>
   );
 }
