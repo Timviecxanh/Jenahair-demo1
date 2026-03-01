@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { Container, Grid, GridCol, Group, Stack, Text } from '@mantine/core';
-import classes from './landing-footer.module.scss';
-import WhatsAppIcon from '@/components/icons/whatsapp-icon.svg';
-import YoutubeIcon from '@/components/icons/youtube-icon.svg';
-import InstagramIcon from '@/components/icons/instagram-icon.svg';
-import FacebookIcon from '@/components/icons/facebook-icon.svg';
-import VisaIcon from '@/components/icons/visa-icon.svg';
-import MasterCardIcon from '@/components/icons/master-card-icon.svg';
-import PayPalIcon from '@/components/icons/paypal-icon.svg';
-import ApplePayIcon from '@/components/icons/apple-pay-icon.svg';
+import { Container, Grid, GridCol, Group, Stack, Text } from "@mantine/core";
+import classes from "./landing-footer.module.scss";
+import WhatsAppIcon from "@/components/icons/whatsapp-icon.svg";
+import YoutubeIcon from "@/components/icons/youtube-icon.svg";
+import InstagramIcon from "@/components/icons/instagram-icon.svg";
+import FacebookIcon from "@/components/icons/facebook-icon.svg";
+import VisaIcon from "@/components/icons/visa-icon.svg";
+import MasterCardIcon from "@/components/icons/master-card-icon.svg";
+import PayPalIcon from "@/components/icons/paypal-icon.svg";
+import ApplePayIcon from "@/components/icons/apple-pay-icon.svg";
 
-import { TbMailForward } from 'react-icons/tb';
-import { PiMapPinSimpleAreaFill } from 'react-icons/pi';
-import EarthIcon from '@/components/icons/vinaup-earth-icon';
-import TiktokIcon from '@/components/icons/tiktok-icon.svg';
-import Link from 'next/link';
-import { IAppConfigResponse } from '@/interfaces/app-config-interface';
-import Image from 'next/image';
+import { TbMailForward } from "react-icons/tb";
+import { PiMapPinSimpleAreaFill } from "react-icons/pi";
+import EarthIcon from "@/components/icons/vinaup-earth-icon";
+import TiktokIcon from "@/components/icons/tiktok-icon.svg";
+import Link from "next/link";
+import { IAppConfigResponse } from "@/interfaces/app-config-interface";
+import Image from "next/image";
 
 interface LandingFooterContainerProps {
   config: IAppConfigResponse | undefined;
@@ -43,34 +43,38 @@ export default function LandingFooterContainer({
                 col: classes.leftCol,
               }}
             >
-              <Text fz={'h2'} c={'white'} className={classes.footerTitle}>
+              <Text fz={"h2"} c={"white"} className={classes.footerTitle}>
                 Smash Travel Vietnam
               </Text>
-              <Group className={classes.footerContent} gap={'md'}>
+              <Group className={classes.footerContent} gap={"md"}>
                 <Group className={classes.textContainer} align="center">
                   <Link
-                    href={`https://wa.me/${config?.phoneContact ? config?.phoneContact : '84912711789'}`}
+                    href={`https://wa.me/${config?.phoneContact ? config?.phoneContact : "84912711789"}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classes.whatsappLink}
                   >
                     <WhatsAppIcon width={22} height={22} />
-                    <Text c="white" fz={'h4'} classNames={{ root: classes.text }}>
+                    <Text
+                      c="white"
+                      fz={"h4"}
+                      classNames={{ root: classes.text }}
+                    >
                       {config?.phoneContact
                         ? `+${config?.phoneContact}`
-                        : '+84 912 711 789'}{' '}
+                        : "+84 912 711 789"}{" "}
                       (Whatsapp)
                     </Text>
                   </Link>
                 </Group>
                 <Group className={classes.textContainer} align="center">
                   <TbMailForward size={24} color="white" />
-                  <Text c="white" fz={'h4'} classNames={{ root: classes.text }}>
+                  <Text c="white" fz={"h4"} classNames={{ root: classes.text }}>
                     sales@jenahair.com
                   </Text>
                 </Group>
               </Group>
-              <Group className={classes.footerContent + ' ' + classes.address}>
+              <Group className={classes.footerContent + " " + classes.address}>
                 <Group
                   className={classes.textContainer}
                   align="center"
@@ -81,13 +85,14 @@ export default function LandingFooterContainer({
                     size={24}
                     color="white"
                   />
-                  <Text c="white" fz={'h5'} classNames={{ root: classes.text }}>
-                    Chang Hai Hamlet, Loc Quang Commune, Dong Nai Province, Vietnam
+                  <Text c="white" fz={"h5"} classNames={{ root: classes.text }}>
+                    Chang Hai Hamlet, Loc Quang Commune, Dong Nai Province,
+                    Vietnam
                   </Text>
                 </Group>
               </Group>
-              <Group className={classes.footerLinks} gap={'xl'}>
-                <Group className={classes.socials} gap={'md'}>
+              <Group className={classes.footerLinks} gap={"xl"}>
+                <Group className={classes.socials} gap={"md"}>
                   <Link
                     href="https://www.facebook.com/smashtravelvietnam/"
                     target="_blank"
@@ -128,7 +133,7 @@ export default function LandingFooterContainer({
                     href="https://jenahair.com"
                     target="_blank"
                     c="white"
-                    fz={'h4'}
+                    fz={"h4"}
                     td="underline"
                     classNames={{ root: classes.text }}
                   >
@@ -141,32 +146,32 @@ export default function LandingFooterContainer({
               <Grid>
                 <GridCol span={{ base: 12, md: 6 }}>
                   <Image
-                    src={config?.logoUrl || '/images/logo-icon.svg'}
+                    src={config?.logoUrl || "/images/logo-icon.svg"}
                     alt="Logo"
                     width={180}
                     height={180}
                   />
                 </GridCol>
                 <GridCol span={{ base: 12, md: 6 }}>
-                  <Stack gap={'xs'}>
-                    <Text c={'white'} fz={'h3'}>
+                  <Stack gap={"xs"}>
+                    <Text c={"white"} fz={"h3"}>
                       Review Us
                     </Text>
                     <Group>
                       <EarthIcon size={24} fill="white" />
-                      <Text c={'white'} fz={'lg'}>
+                      <Text c={"white"} fz={"lg"}>
                         TripAdvisor
                       </Text>
                     </Group>
                     <Group>
                       <EarthIcon size={24} fill="white" />
-                      <Text c={'white'} fz={'lg'}>
+                      <Text c={"white"} fz={"lg"}>
                         Viator
                       </Text>
                     </Group>
                     <Group>
                       <EarthIcon size={24} fill="white" />
-                      <Text c={'white'} fz={'lg'}>
+                      <Text c={"white"} fz={"lg"}>
                         TheVietnamTravel
                       </Text>
                     </Group>
@@ -179,9 +184,14 @@ export default function LandingFooterContainer({
       </div>
       <div className={classes.bottom}>
         <Container size="xl" classNames={{ root: classes.footerContainer }}>
-          <Group justify="space-between" align="center" w={'100%'}>
-            <Text c={'white'} fz={'md'} classNames={{ root: classes.bottomText }}>
-              <Link href="https://jenahair.com">Smash Travel Vietnam</Link> © 2025{' '}
+          <Group justify="space-between" align="center" w={"100%"}>
+            <Text
+              c={"white"}
+              fz={"md"}
+              classNames={{ root: classes.bottomText }}
+            >
+              <Link href="https://jenahair.com">Smash Travel Vietnam</Link> ©
+              2025{" "}
               <Link className={classes.whiteLink} href="https://vinaup.net">
                 Vinaup
               </Link>

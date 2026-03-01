@@ -1,13 +1,13 @@
-import { MaintenanceGuard } from '@/components/guards/maintenance-guard';
-import classes from './layout.module.scss';
-import { LandingHeader } from '@/components/headers/landing-header/landing-header';
-import { Container } from '@mantine/core';
-import LandingFooter from '@/components/footers/landing-footer/landing-footer';
-import { getAppConfigAction } from '@/actions/app-config-action';
-import { Metadata } from 'next';
+import { MaintenanceGuard } from "@/components/guards/maintenance-guard";
+import classes from "./layout.module.scss";
+import { LandingHeader } from "@/components/headers/landing-header/landing-header";
+import { Container } from "@mantine/core";
+import LandingFooter from "@/components/footers/landing-footer/landing-footer";
+import { getAppConfigAction } from "@/actions/app-config-action";
+import { Metadata } from "next";
 
 // Force dynamic rendering because MaintenanceGuard uses getServerSession() and redirect()
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
@@ -18,56 +18,56 @@ export async function generateMetadata(): Promise<Metadata> {
       title: config?.websiteTitle,
       description: config?.websiteDescription,
       icons: {
-        icon: config?.faviconUrl || '/favicon.ico',
+        icon: config?.faviconUrl || "/favicon.ico",
       },
       openGraph: {
-        title: config?.websiteTitle || '',
-        description: config?.websiteDescription || '',
-        url: 'https://jenahair.com',
-        siteName: config?.websiteTitle || '',
+        title: config?.websiteTitle || "",
+        description: config?.websiteDescription || "",
+        url: "https://jenahair.com",
+        siteName: config?.websiteTitle || "",
         images: [
           {
-            url: 'https://jenahair.com/images/vietnam-sightseeing-sample.jpg',
+            url: "https://jenahair.com/images/vietnam-sightseeing-sample.jpg",
             width: 1200,
             height: 630,
-            alt: 'Vietnam Sightseeing',
+            alt: "Vietnam Sightseeing",
           },
         ],
-        locale: 'en_US',
-        type: 'website',
+        locale: "en_US",
+        type: "website",
       },
       alternates: {
-        canonical: 'https://jenahair.com',
+        canonical: "https://jenahair.com",
       },
     };
   } catch {
     // Fallback to default metadata if config not found
     return {
-      title: 'Smash Travel Vietnam',
+      title: "Smash Travel Vietnam",
       description:
-        'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
+        "Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.",
       icons: {
-        icon: '/favicon.ico',
+        icon: "/favicon.ico",
       },
       openGraph: {
-        title: 'Smash Travel Vietnam',
+        title: "Smash Travel Vietnam",
         description:
-          'Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.',
-        url: 'https://jenahair.com',
-        siteName: 'Smash Travel Vietnam',
+          "Smash Travel Vietnam - Discover the beauty of Vietnam with our curated travel experiences.",
+        url: "https://jenahair.com",
+        siteName: "Smash Travel Vietnam",
         images: [
           {
-            url: 'https://jenahair.com/images/vietnam-sightseeing-sample.jpg',
+            url: "https://jenahair.com/images/vietnam-sightseeing-sample.jpg",
             width: 1200,
             height: 630,
-            alt: 'Vietnam Sightseeing',
+            alt: "Vietnam Sightseeing",
           },
         ],
-        locale: 'en_US',
-        type: 'website',
+        locale: "en_US",
+        type: "website",
       },
       alternates: {
-        canonical: 'https://jenahair.com',
+        canonical: "https://jenahair.com",
       },
     };
   }
@@ -82,7 +82,7 @@ export default async function LandingLayout({
     <MaintenanceGuard>
       <div className={classes.landingLayout}>
         <Container size="xl" classNames={{ root: classes.landingContainer }}>
-          <LandingHeader />
+          {/* <LandingHeader /> */}
         </Container>
         {children}
         <LandingFooter />

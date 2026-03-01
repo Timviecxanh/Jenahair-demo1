@@ -7,4 +7,3 @@ export default async function SearchBar() {
 
   return <SearchBarContainer logoUrl={logoUrl || undefined} />;
 }
-
