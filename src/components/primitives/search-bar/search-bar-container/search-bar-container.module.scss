@@ -1,117 +1,83 @@
-.searchBarRoot {
-  // margin-top:2rem;
+.searchWrapper {
   margin-bottom: 2rem;
-padding-top: 1rem;
-  .searchBarInput {
-    padding-left: 6rem;
-    padding-top: 2.25rem;
-    padding-bottom: 2.25rem;
-    padding-right: 7rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 0.5rem;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    &::placeholder {
-      color: #d9d9d9;
-      font-style: italic;
-    }
-  }
+  width: 100%;
+}
+
+.customSearchBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem; // Padding đồng đều cho cả thanh
+  
+  // Background & Glassmorphism
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 0.75rem;
+  min-height: 64px;
+}
+
+.logoSection {
+  flex-shrink: 0; // Không cho phép logo bị bóp méo
+  display: flex;
+  align-items: center;
+
   .logoText {
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    color: #455139; 
-    white-space: nowrap; 
-    padding-left: 0.5rem; 
-    font-family: sans-serif; 
-  }
-  .searchBarSection {
-  &:first-of-type {
-    margin-left: 0.75rem;
-    width: 100px; 
-
-    z-index: 1; 
-  }
-
-  &:last-of-type {
-    margin-right: 0.5rem;
-    width: auto;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #455139;
+    white-space: nowrap;
+    font-family: sans-serif;
   }
 }
 
-  .selectedDestinations {
-    color: white;
-    font-size: 0.95rem;
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.searchBarRoot {
+  flex: 1; // Quan trọng: Để input chiếm toàn bộ khoảng trống ở giữa
+}
 
-  .rightSectionButtons {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+.searchBarInput {
+  width: 100%;
+  color: #ffffff;
+  font-size: 1rem;
+  background: transparent !important;
+  border: none !important;
+
+  &::placeholder {
+    color: #d9d9d9;
+    font-style: italic;
   }
 }
 
-.dropdownContainer {
-  background-color: #f0f0f0;
+.actionSection {
+  flex-shrink: 0; // Đảm bảo cụm icon không bị nhảy dòng
+  display: flex;
+  align-items: center;
+}
 
-  .headerSection {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-
-    .headerTitle {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #333;
-      margin: 0.25rem 0rem;
-    }
-
-    .selectedDestinationsWrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.25rem;
-      
-      .selectedDestinations {
-        flex: 1;
-        font-size: 0.9rem;
-        color: var(--vinaup-blue-link);
-        font-weight: 500;
-
-        .selectedDestination {
-          display: inline;
-        }
-      }
-
-      .clearButton {
-        flex-shrink: 0;
-        cursor: pointer;
-
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
+.socialIcons {
+  display: flex;
+  gap: 10px;
+  
+  @media (max-width: 768px) {
+    display: none; // Ẩn bớt icon mạng xã hội trên mobile cho gọn
   }
+}
 
-  .destinationButton {
-    width: 100%;
-    text-align: center;
-    font-size: 1.05rem;
+.verticalDivider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(75, 93, 63, 0.3);
+  margin: 0 4px;
+}
 
-    &.selected {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--vinaup-blue-link);
-      text-decoration: underline;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
+.socialLink {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
   }
 }

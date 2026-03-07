@@ -7,11 +7,20 @@ import Link from "next/link";
 
 import { Suspense } from "react";
 import HeroSection from "@/components/grids/grid-items-container/v2/hero-section";
+import BrandIdentity from "@/components/BrandIdentity/brand-identity";
+import PartnerSlider from "@/components/PartnerSlider/partner-slider";
+import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
+import GallerySection from "@/components/GallerySection/gallery-section";
+import SingleColumnGallery from "@/components/GallerySection/gallery-section";
 
 export default async function LandingPage() {
   return (
     <>
       <HeroSection />
+      <BrandIdentity />
+      <PartnerSlider />
+      <IntroCardSection />
+      <SingleColumnGallery />
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Suspense fallback={<Loader size={48} />}>
           {/* <SearchBar /> */}

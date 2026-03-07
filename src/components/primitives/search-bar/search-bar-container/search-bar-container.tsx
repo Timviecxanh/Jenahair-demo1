@@ -1,82 +1,191 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { ActionIcon, Group, TextInput } from "@mantine/core";
-import classes from "./search-bar-container.module.scss";
-import { useState } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
-import { Route } from "next";
-import { IMenuResponse } from "@/interfaces/menu-interface";
-import HomeIcon from "@/components/icons/vinaup-home-icon";
+import { ActionIcon, Group, TextInput, Drawer, Stack } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { useState, useMemo } from "react";
+import { HiOutlineSearch } from "react-icons/hi";
+import { FaListCheck } from "react-icons/fa6";
+import { Route } from "next";
+import Link from "next/link";
+import Image from "next/image";
+
+import classes from "./search-bar-container.module.scss";
+import { IMenuResponse } from "@/interfaces/menu-interface";
+import { TreeManager } from "@/helpers/tree-manager-helper";
+import HomeIcon from "@/components/icons/vinaup-home-icon";
 
 import TiktokIcon from "@/components/icons/tiktok.svg";
 import InstagramIcon from "@/components/icons/instagram-icon.svg";
 import FaceBookIcon from "@/components/icons/facebook-icon.svg";
 import GoogleMapIcon from "@/components/icons/google-map.svg";
-import MenuIcon from "@/components/icons/menu-icon.svg";
-import { FaListCheck } from "react-icons/fa6";
-import LandingDrawer from "@/components/sidebars/landing-drawer/landing-drawer";
 
 interface SearchBarProps {
   logoUrl?: string;
+  menusData: IMenuResponse[];
 }
 
-export function SearchBarContainer({ logoUrl }: SearchBarProps) {
+export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
   const router = useRouter();
   const params = useSearchParams();
+  const [opened, { open, close }] = useDisclosure(false);
   const [searchQuery, setSearchQuery] = useState(params.get("q") || "");
-  const basePath = "/blogs";
-  interface SearchBarProps {
-    logoUrl?: string;
-    menusData: IMenuResponse[];
-  }
+
+  const menuTreeManager = useMemo(() => {
+    return menusData.length > 0 ? new TreeManager(menusData) : null;
+  }, [menusData]);
+
+  const getMenuUrl = (menu: IMenuResponse): string => {
+    if (menu.targetType === "custom-url" && menu.customUrl) {
+      if (menu.customUrl === "") return "/";
+      if (!menu.customUrl.startsWith("http"))
+        return `https://${menu.customUrl}`;
+      return menu.customUrl;
+    }
+    return "/";
+  };
+
+  const renderMenuItem = (
+    menu: IMenuResponse,
+    depth: number = 0,
+    isRootChildren: boolean,
+  ): React.ReactNode => {
+    const url = getMenuUrl(menu);
+    const hasChildren = menu.children && menu.children.length > 0;
+    const isExternal =
+      menu.targetType === "custom-url" && menu.customUrl !== "";
+
+    const content = (
+      <span
+        className={
+          !hasChildren && !isRootChildren
+            ? classes.menuLabel
+            : classes.menuLabelParent
+        }
+      >
+        {menu.title}
+      </span>
+    );
+
+    return (
+      <div key={menu.id}>
+        {isExternal ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+            className={classes.menuItem}
+            style={{ paddingLeft: `${depth * 16 + 12}px` }}
+          >
+            {content}
+          </a>
+        ) : (
+          <Link
+            href={url as Route}
+            onClick={close}
+            className={classes.menuItem}
+            style={{ paddingLeft: `${depth * 16 + 12}px` }}
+          >
+            {content}
+          </Link>
+        )}
+        {hasChildren && (
+          <Stack gap={0}>
+            {menu.children?.map((child) =>
+              renderMenuItem(child, depth + 1, false),
+            )}
+          </Stack>
+        )}
+      </div>
+    );
+  };
+
+  const renderMenuTree = () => {
+    const root = menuTreeManager?.getRoot();
+    return root?.children?.map((menu) => renderMenuItem(menu, 0, true));
+  };
+
   const handleSearch = () => {
     const newParams = new URLSearchParams();
     if (searchQuery) newParams.set("q", searchQuery);
-    const queryString = newParams.toString();
-    router.push(`${basePath}${queryString ? `?${queryString}` : ""}` as Route);
+    router.push(
+      `/blogs${newParams.toString() ? `?${newParams.toString()}` : ""}` as Route,
+    );
   };
 
   return (
-    <div className={classes.searchWrapper}>
-      <TextInput
-        id="stv-search-bar"
-        classNames={{
-          root: classes.searchBarRoot,
-          input: classes.searchBarInput,
-          section: classes.searchBarSection,
-        }}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-        leftSection={<span className={classes.logoText}>Jenahair</span>}
-        rightSectionWidth="auto"
-        rightSection={
-          <Group gap={15} px={15} className={classes.rightSectionIcons}>
-            <a href="#" className={classes.socialLink}>
-              <GoogleMapIcon width={30} height={30} />
-            </a>
-            <a href="#" className={classes.socialLink}>
-              <TiktokIcon width={30} height={30} />
-            </a>
-            <a href="#" className={classes.socialLink}>
-              <InstagramIcon width={30} height={30} />
-            </a>
-            <a href="#" className={classes.socialLink}>
-              <FaceBookIcon width={30} height={30} />
-            </a>
+    <>
+      <div className={classes.searchWrapper}>
+        <div className={classes.customSearchBar}>
+          {/* PHẦN LOGO: Tự co giãn theo nội dung */}
+          <div className={classes.logoSection}>
+            {logoUrl ? (
+              <Image src={logoUrl} alt="Logo" width={40} height={40} />
+            ) : (
+              <span className={classes.logoText}>Jenahair</span>
+            )}
+          </div>
 
-            <div className={classes.divider} />
+          {/* PHẦN INPUT: Chiếm trọn không gian còn lại */}
+          <TextInput
+            variant="unstyled" // Bỏ style mặc định để dùng style của wrapper
+            classNames={{
+              input: classes.searchBarInput,
+              root: classes.searchBarRoot,
+            }}
+            placeholder="Search here..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          />
 
-            {/* <ActionIcon variant="transparent" onClick={handleSearch}>
-              <HiOutlineSearch size={30} color="#4b5d3f" />
-            </ActionIcon> */}
-            {/* <FaListCheck size={30} /> */}
-            {/* <LandingDrawer /> */}
-          </Group>
+          {/* PHẦN ICONS: Tự co giãn theo số lượng icon */}
+          <div className={classes.actionSection}>
+            <Group gap={12} wrap="nowrap">
+              <div className={classes.socialIcons}>
+                <a href="#" className={classes.socialLink}>
+                  <GoogleMapIcon width={24} height={24} />
+                </a>
+                <a href="#" className={classes.socialLink}>
+                  <TiktokIcon width={24} height={24} />
+                </a>
+                <a href="#" className={classes.socialLink}>
+                  <InstagramIcon width={24} height={24} />
+                </a>
+                <a href="#" className={classes.socialLink}>
+                  <FaceBookIcon width={24} height={24} />
+                </a>
+              </div>
+
+              <div className={classes.verticalDivider} />
+
+              <ActionIcon variant="transparent" onClick={handleSearch}>
+                <HiOutlineSearch size={22} color="#4b5d3f" />
+              </ActionIcon>
+
+              <ActionIcon variant="transparent" onClick={open}>
+                <FaListCheck size={22} color="#4b5d3f" />
+              </ActionIcon>
+            </Group>
+          </div>
+        </div>
+      </div>
+      <Drawer
+        opened={opened}
+        onClose={close}
+        position="right"
+        size="xs"
+        title={
+          <Link onClick={close} href="/" className={classes.homeLink}>
+            <HomeIcon size={20} stroke="black" />
+            <span>Home</span>
+          </Link>
         }
-      />
-    </div>
+      >
+        <div className={classes.drawerDivider} />
+        <Stack gap={0}>{renderMenuTree()}</Stack>
+      </Drawer>
+    </>
   );
 }

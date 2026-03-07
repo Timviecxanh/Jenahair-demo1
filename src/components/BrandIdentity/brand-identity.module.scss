@@ -1,0 +1,53 @@
+.wrapper {
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+  }
+}
+
+.mainLogo {
+  font-size: clamp(60px, 20vw, 275px); 
+  line-height: 1;
+  margin: 0;
+  font-weight: 900;
+  text-transform: capitalize;
+
+  .jena {
+    color: #BDE5C0; 
+  }
+
+  .hair {
+    color: #FF934B; 
+  }
+}
+
+.slogan {
+  max-width: 1100px; 
+  margin: 25px auto 0;
+  font-size: 1.15rem;
+  line-height: 1.7; 
+  opacity: 0.9;
+  font-weight: 300;
+  
+  display: block;
+  overflow: visible;
+
+  .desktopBr {
+    display: block; // Kích hoạt việc xuống dòng trên PC
+    
+    @media (max-width: 768px) {
+      display: none; // Tắt việc xuống dòng cưỡng ép trên mobile
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 0 10px;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+}

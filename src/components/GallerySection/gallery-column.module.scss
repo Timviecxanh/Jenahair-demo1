@@ -1,0 +1,35 @@
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+}
+.imageContainer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.ratioShort {
+  aspect-ratio: 3 / 2; 
+}
+
+.ratioMedium {
+  aspect-ratio: 360 / 393;
+}
+
+.ratioTall {
+  aspect-ratio: 360 / 462;
+}
+
+.ratioTallest {
+  aspect-ratio: 360 / 587;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+ 
+}
+

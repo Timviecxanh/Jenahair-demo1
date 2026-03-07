@@ -1,47 +1,41 @@
 .heroWrapper {
   position: relative;
   width: 100%;
-  height: 500px; 
+  aspect-ratio: 2 / 1; 
+  max-height: 600px; 
+  min-height: 350px;
   display: flex;
   align-items: flex-start; 
   justify-content: center; 
-  
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    aspect-ratio: 16 / 9; 
+    max-height: none;
+  }
 }
 
-.container {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  
-  max-width: 1100px; 
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px 20px 0 20px; 
-  display: flex;
-  justify-content: center;
-}
-
-.searchBox {
-  width: 100%;
-
-}
 .bgImage {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-// .overlay {
-//   position: absolute;
-//   inset: 0;
-//   background: rgba(0, 0, 0, 0.3); 
-//   z-index: 2; 
-// }
+.heroImage {
+  object-fit: cover; 
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
 
 .container {
   position: relative; 
   z-index: 3; 
   width: 100%;
   max-width: 1100px;
+  padding: 20px;
 }
