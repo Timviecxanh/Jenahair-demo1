@@ -1,18 +1,25 @@
 .wrapper {
   background-color: var(--vinaup-moss);
   padding: 80px 20px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 40px 0; 
+  }
 }
 
 /* HEADER */
-
 .header {
   text-align: center;
   max-width: 1100px;
   margin-bottom: 60px;
+  padding: 0 20px; 
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
 
   h2 {
     color: var(--vinaup-amber);
@@ -20,14 +27,23 @@
     font-weight: 700;
     margin-bottom: 18px;
     font-family: Montserrat, sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
   }
 
   p {
     color: #ffffff;
     font-size: 18px;
     line-height: 1.7;
-  max-width: 1100px; 
+    max-width: 1100px; 
 
+    @media (max-width: 768px) {
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
     a {
       color: var(--vinaup-amber);
@@ -37,26 +53,60 @@
 }
 
 
-/* GRID 3 COLUMN */
-
-.galleryGrid {
+.desktopGrid {
   width: 100%;
   max-width: 1120px;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    display: none; 
+  }
+
+  & > * {
+    width: 360px;
+    flex-shrink: 0;
+  }
 }
 
 
-.galleryGrid > * {
-  width: 360px;
-  flex-shrink: 0;
+.mobileSlider {
+  display: none; 
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 10px 20px 30px 20px; 
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; 
+    
+    scrollbar-width: none; 
+    &::-webkit-scrollbar {
+      display: none; 
+    }
+  }
+}
+
+.sliderItem {
+  flex: 0 0 75vw; 
+  scroll-snap-align: center; 
+  img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    border-radius: 12px; 
+    display: block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+  }
 }
 
 /* FOOTER */
-
 .footerBtn {
   margin-top: 50px;
   font-size: 25px;
@@ -64,25 +114,42 @@
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
-  text-decoration: none;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    font-size: 18px;
+  }
 }
 
-.footerTitle{
+.footerTitle {
   font-family: Montserrat, sans-serif;
   color: var(--vinaup-amber);
   font-size: 45px;
   margin-top: 30px;
+  text-align: center;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+    margin-top: 30px;
+  }
 }
 
-.footerSubtitle{
-margin-top: 20px;
+.footerSubtitle {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  
+  gap: 8px; 
+  padding: 0 20px;
   
   p {
     margin: 0; 
     font-size: 22px;
     color: #ffffff;
 
-}}
+    @media (max-width: 768px) {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+}

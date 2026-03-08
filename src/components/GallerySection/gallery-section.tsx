@@ -1,6 +1,6 @@
 import type { ImageItem } from "./gallery-column";
 import classes from "./gallery-section.module.scss";
-import { Group, Box, Text, Title } from "@mantine/core";
+import { Box, Text, Title } from "@mantine/core";
 import GalleryColumn from "./gallery-column";
 
 export default function GallerySection() {
@@ -14,7 +14,6 @@ export default function GallerySection() {
   const columnTwo: ImageItem[] = [
     { src: "/images/IntroImage.png", ratio: "tallest" },
     { src: "/images/IntroImage.png", ratio: "short" },
-
     { src: "/images/IntroImage.png", ratio: "tall" },
   ];
 
@@ -25,6 +24,8 @@ export default function GallerySection() {
     { src: "/images/IntroImage.png", ratio: "tallest" },
   ];
 
+  const allImages = [...columnOne, ...columnTwo, ...columnThree];
+
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.header}>
@@ -34,22 +35,33 @@ export default function GallerySection() {
             Tiệm tóc nữ quận Tân Phú được chị em truyền miệng vì “Tay nghề giỏi,
             tận tâm & sử dụng sản phẩm nhập khẩu tốt cho sức khỏe”.
           </span>
-
+          <br />{" "}
           <span>
             Chuyên chữa trị tóc hư tổn, cắt tóc tạo kiểu, tẩy tóc nhuộm màu thời
             trang.. Xem <a href="#">nhật ký</a>
           </span>
         </Text>
       </Box>
-      <Group className={classes.galleryGrid} wrap="nowrap">
+
+      <Box className={classes.desktopGrid}>
         <GalleryColumn images={columnOne} />
         <GalleryColumn images={columnTwo} />
         <GalleryColumn images={columnThree} />
-      </Group>
+      </Box>
 
-      <Text className={classes.footerBtn}>Xem tiếp</Text>
+      <Box className={classes.mobileSlider}>
+        {allImages.map((img, index) => (
+          <Box key={index} className={classes.sliderItem}>
+            <img src={img.src} alt={`Hair diary ${index}`} />
+          </Box>
+        ))}
+      </Box>
 
-      <Title className={classes.footerTitle}>
+      <Text className={classes.footerBtn} component="a" href="#">
+        Xem tiếp
+      </Text>
+
+      <Title order={3} className={classes.footerTitle}>
         Salon cam kết với khách hàng
       </Title>
 
