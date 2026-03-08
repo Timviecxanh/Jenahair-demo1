@@ -1,11 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Box, Stack } from "@mantine/core";
 import classes from "./gallery-column.module.scss";
 
 type RatioType = "short" | "medium" | "tall" | "tallest";
 
 export type ImageItem = {
-  src: StaticImageData;
+  src: string;
   ratio: RatioType;
 };
 

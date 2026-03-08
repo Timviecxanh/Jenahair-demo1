@@ -12,6 +12,7 @@ import PartnerSlider from "@/components/PartnerSlider/partner-slider";
 import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
 import GallerySection from "@/components/GallerySection/gallery-section";
 import SingleColumnGallery from "@/components/GallerySection/gallery-section";
+import LandingFooterV2 from "@/components/footers/landing-footerV2/landing-footerV2";
 
 export default async function LandingPage() {
   return (
@@ -21,6 +22,7 @@ export default async function LandingPage() {
       <PartnerSlider />
       <IntroCardSection />
       <SingleColumnGallery />
+      <LandingFooterV2 />
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Suspense fallback={<Loader size={48} />}>
           {/* <SearchBar /> */}

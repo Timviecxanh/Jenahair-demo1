@@ -79,14 +79,14 @@ export default async function LandingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MaintenanceGuard>
-      <div className={classes.landingLayout}>
-        <Container size="xl" classNames={{ root: classes.landingContainer }}>
-          {/* <LandingHeader /> */}
-        </Container>
-        {children}
-        <LandingFooter />
-      </div>
-    </MaintenanceGuard>
+    // <MaintenanceGuard>
+    <div className={classes.landingLayout}>
+      <Container size="xl" classNames={{ root: classes.landingContainer }}>
+        {/* <LandingHeader /> */}
+      </Container>
+      {children}
+      {/* <LandingFooter /> */}
+    </div>
+    // </MaintenanceGuard>
   );
 }

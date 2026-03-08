@@ -17,10 +17,24 @@
 
   .jena {
     color: #BDE5C0; 
+    font-family:
+    "Apple LiGothic",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    sans-serif;
+    text-shadow: 0 5px 5px rgba(0,0,0,0.25);
   }
 
   .hair {
-    color: #FF934B; 
+    color: var(--vinaup-amber); 
+    font-family:
+    "Apple LiGothic",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    sans-serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
   }
 }
 
@@ -36,10 +50,10 @@
   overflow: visible;
 
   .desktopBr {
-    display: block; // Kích hoạt việc xuống dòng trên PC
+    display: block; 
     
     @media (max-width: 768px) {
-      display: none; // Tắt việc xuống dòng cưỡng ép trên mobile
+      display: none; 
     }
   }
 

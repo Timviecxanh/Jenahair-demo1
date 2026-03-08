@@ -9,7 +9,7 @@ export default function PartnerSlider() {
 
   return (
     <div className={classes.sliderContainer}>
-      <Marquee direction="right" speed={500}>
+      <Marquee direction="right" speed={80}>
         {displayPartners.map((item, index) => (
           <div key={`${item}-${index}`} className={classes.partnerItem}>
             <Text className={classes.partnerText}>{item}</Text>

@@ -1,7 +1,6 @@
 import classes from "./intro-card-section.module.scss";
 import { SimpleGrid, Stack, Title, Text, Box } from "@mantine/core";
 import Image from "next/image";
-import IntroImage from "@/components/image/IntroImage.png";
 
 const SERVICES = [
   "Cắt tóc nữ theo khuôn mặt",
@@ -26,10 +25,12 @@ export default function IntroCardSection() {
         {/* IMAGE */}
         <Box className={classes.imageWrapper}>
           <Image
-            src={IntroImage}
+            src="/public/images/IntroImage.png"
             alt="Jena Hair"
-            className={classes.image}
+            fill
             priority
+            className={classes.image}
+            sizes="(max-width: 768px) 100vw, 550px"
           />
         </Box>
 

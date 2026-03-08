@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  background-color: #FF934B;
+  background-color: #f3a270;
   padding: 80px 40px;
 
   @media (max-width: 768px) {
@@ -9,30 +9,32 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 60px;
   max-width: 1300px;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  align-items: center;
 }
 
 .imageWrapper {
+  position: relative;
+  height: 560px;
   border-radius: 20px;
   overflow: hidden;
-  justify-self: start;   
+  border: 3px solid #2b6cb0; // viền xanh giống hình
+  background-color: #000;
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
 }
 
 .image {
-  width: 100%;
-  max-width: 420px;   
-  height: auto;
-  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .content {
@@ -40,12 +42,12 @@
 }
 
 .title {
-font-size: clamp(2rem, 4vw, 45px);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
 }
 
 .subtitle {
-  font-size: 22px;
+  font-size: 1.1rem;
   margin-bottom: 25px;
   opacity: 0.8;
 }
@@ -61,7 +63,6 @@ font-size: clamp(2rem, 4vw, 45px);
   padding: 12px 20px;
   border-radius: 12px;
   font-weight: 500;
-  font-size: 22px;
   cursor: pointer;
   transition: all 0.25s ease;
   white-space: nowrap;

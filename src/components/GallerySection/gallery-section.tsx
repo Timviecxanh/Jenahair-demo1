@@ -2,31 +2,27 @@ import type { ImageItem } from "./gallery-column";
 import classes from "./gallery-section.module.scss";
 import { Group, Box, Text, Title } from "@mantine/core";
 import GalleryColumn from "./gallery-column";
-import Img1 from "@/components/image/IntroImage.png";
-import Img2 from "@/components/image/IntroImage.png";
-import Img3 from "@/components/image/IntroImage.png";
-import Img4 from "@/components/image/IntroImage.png";
-import Img5 from "@/components/image/group1.png";
+
 export default function GallerySection() {
   const columnOne: ImageItem[] = [
-    { src: Img1, ratio: "short" },
-    { src: Img2, ratio: "medium" },
-    { src: Img3, ratio: "tall" },
-    { src: Img1, ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "tall" },
+    { src: "/images/IntroImage.png", ratio: "short" },
   ];
 
   const columnTwo: ImageItem[] = [
-    { src: Img5, ratio: "tallest" },
-    { src: Img3, ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "tallest" },
+    { src: "/images/IntroImage.png", ratio: "short" },
 
-    { src: Img2, ratio: "tall" },
+    { src: "/images/IntroImage.png", ratio: "tall" },
   ];
 
   const columnThree: ImageItem[] = [
-    { src: Img3, ratio: "medium" },
-    { src: Img2, ratio: "short" },
-    { src: Img3, ratio: "medium" },
-    { src: Img5, ratio: "tallest" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "tallest" },
   ];
 
   return (
@@ -52,6 +48,18 @@ export default function GallerySection() {
       </Group>
 
       <Text className={classes.footerBtn}>Xem tiếp</Text>
+
+      <Title className={classes.footerTitle}>
+        Salon cam kết với khách hàng
+      </Title>
+
+      <Box className={classes.footerSubtitle} ta="center">
+        <Text>
+          Salon phục vụ làm đẹp cho khách hàng, đến khi hài lòng mà không phụ
+          thu thêm chi phí phát sinh.
+        </Text>
+        <Text>Sản phẩm phục vụ khách hàng là hàng chính hãng</Text>
+      </Box>
     </Box>
   );
 }

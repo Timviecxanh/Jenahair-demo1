@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: #434d32;
+  background-color: var(--vinaup-moss);
   padding: 80px 20px;
 
   display: flex;
@@ -15,10 +15,11 @@
   margin-bottom: 60px;
 
   h2 {
-    color: #ff934b;
+    color: var(--vinaup-amber);
     font-size: 44px;
     font-weight: 700;
     margin-bottom: 18px;
+    font-family: Montserrat, sans-serif;
   }
 
   p {
@@ -29,7 +30,7 @@
 
 
     a {
-      color: #ff934b;
+      color: var(--vinaup-amber);
       text-decoration: underline;
     }
   }
@@ -58,9 +59,30 @@
 
 .footerBtn {
   margin-top: 50px;
-  font-size: 18px;
-  color: #ff934b;
+  font-size: 25px;
+  color: var(--vinaup-mint);
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
+  text-decoration: none;
 }
+
+.footerTitle{
+  font-family: Montserrat, sans-serif;
+  color: var(--vinaup-amber);
+  font-size: 45px;
+  margin-top: 30px;
+}
+
+.footerSubtitle{
+margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  
+  p {
+    margin: 0; 
+    font-size: 22px;
+    color: #ffffff;
+
+}}

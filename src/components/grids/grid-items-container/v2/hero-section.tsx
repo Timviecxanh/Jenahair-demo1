@@ -3,7 +3,6 @@ import { getAppConfigAction } from "@/actions/app-config-action";
 import { getAllPublicMenusAction } from "@/actions/menu-action";
 import classes from "./hero-section.module.scss";
 import Image from "next/image";
-import Group1 from "@/components/image/group1.png";
 
 export default async function HeroSection() {
   const [configResponse, menusResponse] = await Promise.all([
@@ -18,7 +17,7 @@ export default async function HeroSection() {
     <section className={classes.heroWrapper}>
       <div className={classes.bgImage}>
         <Image
-          src={Group1}
+          src={"/images/Group1.png"}
           alt="hair Banner"
           fill
           priority
