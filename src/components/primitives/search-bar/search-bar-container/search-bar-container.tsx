@@ -1,7 +1,14 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { ActionIcon, Group, TextInput, Drawer, Stack } from "@mantine/core";
+import {
+  ActionIcon,
+  Group,
+  TextInput,
+  Drawer,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState, useMemo } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
@@ -118,7 +125,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
     <>
       <div className={classes.searchWrapper}>
         <div className={classes.customSearchBar}>
-          {/* PHẦN LOGO: Tự co giãn theo nội dung */}
           <div className={classes.logoSection}>
             {logoUrl ? (
               <Image src={logoUrl} alt="Logo" width={40} height={40} />
@@ -127,9 +133,8 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
             )}
           </div>
 
-          {/* PHẦN INPUT: Chiếm trọn không gian còn lại */}
           <TextInput
-            variant="unstyled" // Bỏ style mặc định để dùng style của wrapper
+            variant="unstyled"
             classNames={{
               input: classes.searchBarInput,
               root: classes.searchBarRoot,
@@ -145,32 +150,33 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
             <Group gap={12} wrap="nowrap">
               <div className={classes.socialIcons}>
                 <a href="#" className={classes.socialLink}>
-                  <GoogleMapIcon width={24} height={24} />
+                  <GoogleMapIcon width={35} height={35} />
                 </a>
                 <a href="#" className={classes.socialLink}>
-                  <TiktokIcon width={24} height={24} />
+                  <TiktokIcon width={35} height={35} />
                 </a>
                 <a href="#" className={classes.socialLink}>
-                  <InstagramIcon width={24} height={24} />
+                  <InstagramIcon width={35} height={35} />
                 </a>
                 <a href="#" className={classes.socialLink}>
-                  <FaceBookIcon width={24} height={24} />
+                  <FaceBookIcon width={35} height={35} />
                 </a>
               </div>
 
               <div className={classes.verticalDivider} />
 
               <ActionIcon variant="transparent" onClick={handleSearch}>
-                <HiOutlineSearch size={22} color="#4b5d3f" />
+                <HiOutlineSearch size={35} color="#4b5d3f" />
               </ActionIcon>
 
               <ActionIcon variant="transparent" onClick={open}>
-                <FaListCheck size={22} color="#4b5d3f" />
+                <FaListCheck size={35} color="#4b5d3f" />
               </ActionIcon>
             </Group>
           </div>
         </div>
       </div>
+      {/* Phần Drawer hiện tại của bạn */}
       <Drawer
         opened={opened}
         onClose={close}
@@ -184,7 +190,39 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
         }
       >
         <div className={classes.drawerDivider} />
-        <Stack gap={0}>{renderMenuTree()}</Stack>
+
+        {/* Chuyển Stack thành flex column với min-height để đẩy social xuống cuối */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "calc(100vh - 100px)",
+            justifyContent: "space-between",
+          }}
+        >
+          <Stack gap={0}>{renderMenuTree()}</Stack>
+
+          {/* Khu vực Social Icons hiển thị trong Drawer */}
+          <div className={classes.drawerSocials}>
+            <Text size="sm" c="dimmed" mb="md" ta="center">
+              Kết nối với chúng tôi
+            </Text>
+            <Group justify="center" gap={20}>
+              <a href="#" className={classes.socialLink}>
+                <GoogleMapIcon width={28} height={28} />
+              </a>
+              <a href="#" className={classes.socialLink}>
+                <TiktokIcon width={28} height={28} />
+              </a>
+              <a href="#" className={classes.socialLink}>
+                <InstagramIcon width={28} height={28} />
+              </a>
+              <a href="#" className={classes.socialLink}>
+                <FaceBookIcon width={28} height={28} />
+              </a>
+            </Group>
+          </div>
+        </div>
       </Drawer>
     </>
   );

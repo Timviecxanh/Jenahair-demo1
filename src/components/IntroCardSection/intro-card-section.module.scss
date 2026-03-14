@@ -1,153 +1,109 @@
-$color-dark: #455139;    
-$color-primary: #f3a270; 
-$color-light: #BDE5C0;   
+$bg-dark: #1a241f;       
+$card-bg: #262f29;     
+$primary-coral: #f3a270; 
+$text-light: #ffffff;
+$text-muted: rgba(255, 255, 255, 0.7);
 
-.introSection {
-  background: linear-gradient(135deg, $color-light 0%, #e8f5e9 100%);
-  padding: 5rem 2rem;
-  font-family: 'Inter', sans-serif;
-  overflow: hidden;
+.section {
+  background-color: $bg-dark;
+  padding: 80px 20px;
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 1100px;
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.mainTitle {
+  color: $text-light;
+  font-size: 40px !important;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.subTitle {
+  color: $text-muted;
+  max-width: 650px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-
-  @media (max-width: 992px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-  }
+  line-height: 1.6;
 }
 
-.imageColumn {
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.imageWrapper {
-  position: relative;
-  z-index: 2;
-  max-width: 400px;
-  
-  &::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: -20px;
-    bottom: -20px;
-    border: 2px solid $color-primary; 
-    border-radius: 20px;
-    z-index: -1;
-  }
-}
-
-.image {
+.largeCard {
+  background-color: $card-bg;
   border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.imageWrapper:hover .image {
-  transform: scale(1.05) rotate(2deg);
-}
-
-.title {
-  font-size: 3rem;
-  color: $color-dark;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-
-  .brandName {
-    color: $color-primary; 
-    display: inline-block;
-    position: relative;
-    
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      background: rgba($color-primary, 0.2); 
-      z-index: -1;
-    }
-  }
-}
-
-.subtitle {
-  color: $color-dark;
-  opacity: 0.9;
-  font-size: 1.15rem;
-  margin-bottom: 2.5rem;
-  max-width: 500px;
-}
-
-.servicesGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  @media (max-width: 992px) { justify-content: center; }
-}
-
-.serviceChip {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: white; 
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: $color-dark;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  padding: 35px;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 
-  .icon { 
-    color: $color-primary; 
-    transition: transform 0.3s ease; 
-    display: flex;
-    align-items: center;
+  &:hover {
+    transform: translateY(-10px) scale(1.02); 
+    border-color: $primary-coral; 
+    box-shadow: 0 15px 35px rgba($primary-coral, 0.15), 0 5px 15px rgba(0, 0, 0, 0.4);
+    background-color: lighten($card-bg, 2%);
+
+    .iconLarge {
+      transform: scale(1.15) rotate(-5deg); 
+    }
   }
 
-  &:hover {
-    background: $color-dark;
+  .iconLarge {
+    color: $primary-coral;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease; 
+    svg { width: 40px; height: 40px; }
+  }
+
+  .cardTitle {
     color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    
-    .icon { 
-      color: $color-light;
+    font-size: 22px !important;
+    margin-bottom: 12px;
+  }
+
+  .cardDesc {
+    color: $text-muted;
+    font-size: 15px;
+  }
+}
+
+.smallCard {
+  background-color: rgba($card-bg, 0.6);
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.03);
+    background-color: $card-bg; 
+    border-color: rgba($primary-coral, 0.6); 
+    box-shadow: 0 10px 25px rgba($primary-coral, 0.1);
+
+    .iconSmall {
+      color: $primary-coral;
       transform: scale(1.2);
     }
   }
-}
 
-.specialChip {
-  background: $color-primary;
-  color: white;
-  
-  .icon { color: white; }
-  .serviceName { font-weight: 700; }
+  .iconSmall {
+    color: $text-muted;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    svg { width: 28px; height: 28px; }
+  }
 
-  &:hover {
-    background: darken($color-primary, 10%); 
-    transform: translateY(-7px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(243, 162, 112, 0.4);
+  .smallCardTitle {
+    color: white;
+    font-size: 17px !important;
+    margin-bottom: 8px;
+  }
 
-    .icon {
-      color: white; 
-    }
+  .smallCardDesc {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
   }
 }
