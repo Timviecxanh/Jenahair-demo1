@@ -31,7 +31,7 @@
 }
 
 .content {
-  max-width: 900px;
+  max-width: 850px;
   margin-left: 80px;
   padding: 80px 0;
 }
@@ -57,10 +57,20 @@
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 24px;
+.jena{
+  font-size: 70px;
+  color: var(--vinaup-mint);
+}
+.hair{
+  font-size: 70px;
 
-  .titleTop {
-    white-space: nowrap; 
-  }
+  color: var(--vinaup-amber);
+}
+.jena,
+.hair {
+  display: inline;
+}
+  
 
   .break {
     display: block; 
@@ -88,17 +98,6 @@
   }
 }
 
-.secondaryButton {
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  font-weight: 600;
-  padding: 14px 32px !important;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-  }
-}
 
 
 
@@ -145,11 +144,18 @@
 @media (max-width: 480px) {
 
   .title {
-    font-size: 26px;
+    font-size: 36px;
+    .jena{
+      font-size: 40px;
+
+    }
+    .hair{
+      font-size: 40px;
+    }
   }
 
   .description {
-    font-size: 11px;
+    font-size: 12px;
   }
 
 }

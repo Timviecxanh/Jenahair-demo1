@@ -12,7 +12,11 @@ export function HeroSection() {
           <div className={classes.badge}>PROFESSIONAL HAIR SALON</div>
 
           <Title className={classes.title}>
-            Jenahair - <span className={classes.titleTop}>Sứ mệnh làm bạn</span>
+            <span>
+              <span className={classes.jena}>Jena</span>
+              <span className={classes.hair}> hair </span>
+            </span>
+            <span className={classes.titleTop}>sứ mệnh làm bạn</span>
             <span className={classes.break}>lộng lẫy</span>
           </Title>
 
@@ -26,14 +30,6 @@ export function HeroSection() {
           <Group gap="md" mt={32} wrap="wrap">
             <Button size="lg" className={classes.primaryButton} radius="md">
               Khám phá dịch vụ
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className={classes.secondaryButton}
-              radius="md"
-            >
-              Xem báo giá
             </Button>
           </Group>
         </div>
