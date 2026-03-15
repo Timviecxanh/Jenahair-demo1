@@ -13,19 +13,20 @@ import SingleColumnGallery from "@/components/GallerySection/gallery-section";
 import LandingFooterV2 from "@/components/footers/landing-footerV2/landing-footerV2";
 import Header from "@/components/headers/landing-header/landing-headerV2";
 import { HeroSection } from "@/components/grids/grid-items-container/v2/hero-section";
-import { IntroCardSection } from "@/components/IntroCardSection/intro-card-section";
+import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
 export default async function LandingPage() {
   return (
     <>
       {/* <HeroSection />
       <BrandIdentity />
-      <PartnerSlider />
       <IntroCardSection />
       <SingleColumnGallery />
       <LandingFooterV2 /> */}
+
       <Header />
       <HeroSection />
       <IntroCardSection />
+      <PartnerSlider />
 
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Suspense fallback={<Loader size={48} />}>

@@ -1,22 +1,55 @@
-import classes from "./partner-slider.module.scss";
-import { Text } from "@mantine/core";
+import React from "react";
+import { Box, Container, Stack, Title, Text, Group } from "@mantine/core";
 import Marquee from "react-fast-marquee";
-const PARTNERS = ["Milbon", "ATS", "Slider", "Abc", "Schwarzkopf", "JenaHair"];
+import classes from "./partner-slider.module.scss";
+
+const PARTNERS = [
+  { name: "MILBON", sub: "JAPAN ELITE" },
+  { name: "ATS", sub: "ORGANIC CARE" },
+  { name: "GOLDWELL", sub: "COLOR EXPERT" },
+  { name: "Schwarzkopf", sub: "PROFESSIONAL" },
+];
 
 export default function PartnerSlider() {
-  // Nhân đôi danh sách để tạo hiệu ứng lặp vô tận mượt mà
   const displayPartners = [...PARTNERS, ...PARTNERS];
 
   return (
-    <div className={classes.sliderContainer}>
-      <Marquee direction="right" speed={80}>
-        {displayPartners.map((item, index) => (
-          <div key={`${item}-${index}`} className={classes.partnerItem}>
-            <Text className={classes.partnerText}>{item}</Text>
-            <Text className={classes.divider}>•</Text>
-          </div>
-        ))}
-      </Marquee>
-    </div>
+    <Box component="section" className={classes.sectionWrapper}>
+      <Container size="lg">
+        <Stack align="center" gap="md" className={classes.headerContent}>
+          <Group gap="sm" className={classes.subtitleGroup}>
+            <div className={classes.line} />
+            <Text className={classes.subtitle}>PREMIUM PRODUCTS</Text>
+            <div className={classes.line} />
+          </Group>
+
+          <Title order={2} className={classes.title}>
+            Sản phẩm cao cấp đồng hành
+          </Title>
+
+          <Text className={classes.description}>
+            Chúng tôi chỉ sử dụng các dòng sản phẩm chính hãng, an toàn và
+            chuyên nghiệp nhất cho mái tóc của bạn.
+          </Text>
+        </Stack>
+      </Container>
+
+      <div className={classes.sliderContainer}>
+        <Marquee
+          direction="left"
+          speed={60}
+          gradient={true}
+          gradientColor="#faf9f6"
+          gradientWidth={100}
+        >
+          {displayPartners.map((item, index) => (
+            <div key={`${item.name}-${index}`} className={classes.partnerItem}>
+              <Text className={classes.partnerName}>{item.name}</Text>
+              <Text className={classes.partnerSub}>{item.sub}</Text>
+            </div>
+          ))}
+        </Marquee>
+      </div>
+    </Box>
   );
 }
