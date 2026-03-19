@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+// import React from "react";
 import {
   Group,
   Button,
@@ -23,7 +23,7 @@ const navLinks = [
   { label: "LIÊN HỆ", link: "#" },
 ];
 
-const Header: React.FC = () => {
+export default function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   return (
@@ -35,7 +35,6 @@ const Header: React.FC = () => {
         wrap="nowrap"
         className={styles.inner}
       >
-        {/* Logo Section */}
         <Anchor href="/" underline="never" className={styles.logoSection}>
           <Group gap={8}>
             <div className={styles.iconWrapper}>
@@ -109,6 +108,6 @@ const Header: React.FC = () => {
       </Drawer>
     </Box>
   );
-};
+}
 
-export default Header;
+// export default ;

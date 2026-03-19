@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Title, Text, Button, Group } from "@mantine/core";
+import { Container, Title, Text, Button, Group, Stack } from "@mantine/core";
 import classes from "./hero-section.module.scss";
 
 export function HeroSection() {
