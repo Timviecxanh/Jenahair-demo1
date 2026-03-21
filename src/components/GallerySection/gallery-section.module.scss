@@ -1,76 +1,88 @@
+.wrapper {
+  background-color: #455139;
+  padding: 80px 20px;
 
-.container {
-  padding: 2rem 0;
-  background-color:#f9faf6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title {
-  color : var(--vinaup-orange-coral);
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
 
-.description {
-  color: #6b7280;
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin-bottom: 2rem;
-.highlight {
-  font-size: 18px;
-  color: var(--vinaup-moss);
-  font-weight: 600;
-}
-  .link {
-    color: var(--vinaup-moss);
-    
-    cursor: pointer;
-  }
-}
+.header {
+  text-align: center;
+  max-width: 1100px;
+  margin-bottom: 60px;
 
-.tabsRoot {
-  width: 100%;
-}
-
-.tabsList {
-  border-bottom: 1px solid #e5e7eb; 
-  gap: 2rem; 
-  margin-bottom: 1.5rem;
-  
-  &::before {
-    display: none; 
-  }
-}
-
-.tab {
-  padding: 0.75rem 0;
-  border: none;
-  background: transparent;
-  color: #6b7280; 
-  font-size: 1rem;
-  font-weight: 600;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-  cursor: pointer;
-
-  svg {
-    color: #6b7280;
-    margin-right: 0.25rem;
+  h2 {
+    color: var(--vinaup-amber);
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 18px;
   }
 
-  &:hover {
-    background: transparent;
-    color: #374151;
-    border-bottom-color: #d1d5db;
-  }
+  p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.7;
+  max-width: 1100px; 
 
-  &[data-active] {
-    color: #173724; 
-    border-bottom: 2px solid #173724; 
-    
-    svg {
-      color: #173724;
+
+    a {
+        color: var(--vinaup-amber);
+
+      text-decoration: underline;
     }
   }
+}
+
+
+
+.galleryGrid {
+  width: 100%;
+  max-width: 1120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+.galleryGrid > * {
+  width: 360px;
+  flex-shrink: 0;
+}
+
+
+.footerBtn {
+  margin-top: 50px;
+  font-size: 18px;
+  color: var(--vinaup-amber);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.title{
+    font-size: 45px;
+    color: var(--vinaup-amber);
+    font-weight: 500;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+    .subtitle {
+  color: #ffffff;
+  font-size: 18px;          // Kích thước vừa phải
+  line-height: 1.6;         // Khoảng cách dòng thoáng
+  font-weight: 400;
+  text-align: center;
+  
+  /* ĐÂY LÀ PHẦN QUAN TRỌNG NHẤT ĐỂ GIỐNG ẢNH */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
+  opacity: 0.95;            // Hơi mờ nhẹ để tạo cảm giác sang trọng
+  
+  max-width: 900px;         // Giới hạn chiều ngang để text không bị dàn quá rộng
+  margin: 0 auto;
 }

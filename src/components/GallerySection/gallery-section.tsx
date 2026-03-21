@@ -1,28 +1,58 @@
-import { Title, Text, Container, rem } from "@mantine/core";
-
+import type { ImageItem } from "./gallery-column";
 import classes from "./gallery-section.module.scss";
-import GalleryTabs from "./gallery-tab";
+import { Group, Box, Text, Title } from "@mantine/core";
+import GalleryColumn from "./gallery-column";
 
-export function GallerySection() {
+export default function GallerySection() {
+  const columnOne: ImageItem[] = [
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "tall" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+  ];
+
+  const columnTwo: ImageItem[] = [
+    { src: "/images/IntroImage.png", ratio: "tallest" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+
+    { src: "/images/IntroImage.png", ratio: "tall" },
+  ];
+
+  const columnThree: ImageItem[] = [
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "tallest" },
+  ];
+
   return (
-    <Container size="lg" className={classes.container}>
-      <Title order={2} className={classes.title}>
-        Nhật ký cắt tóc nữ
-      </Title>
+    <Box className={classes.wrapper}>
+      <Box className={classes.header}>
+        <Title order={2}>Nhật ký cắt tóc nữ</Title>
+        <Text className={classes.description}>
+          <span>
+            Tiệm tóc nữ quận Tân Phú được chị em truyền miệng vì “Tay nghề giỏi,
+            tận tâm & sử dụng sản phẩm nhập khẩu tốt cho sức khỏe”.
+          </span>
 
-      <Text className={classes.description}>
-        Tiệm tóc nữ quận Tân Phú được chị em truyền miệng vì{" "}
-        <span className={classes.highlight}>
-          "Tay nghề giỏi, tận tâm & sử dụng sản phẩm nhập khẩu tốt cho sức khỏe"
-        </span>
-        . Chuyên chữa trị tóc hư tổn, cắt tóc tạo kiểu, tẩy tóc nhuộm màu thời
-        trang..{" "}
-        <a href="#" className={classes.link}>
-          Xem nhật ký
-        </a>
+          <span>
+            Chuyên chữa trị tóc hư tổn, cắt tóc tạo kiểu, tẩy tóc nhuộm màu thời
+            trang.. Xem <a href="#">nhật ký</a>
+          </span>
+        </Text>
+      </Box>
+      <Group className={classes.galleryGrid} wrap="nowrap">
+        <GalleryColumn images={columnOne} />
+        <GalleryColumn images={columnTwo} />
+        <GalleryColumn images={columnThree} />
+      </Group>
+
+      <Text className={classes.footerBtn}>Xem tiếp</Text>
+      <Text className={classes.title}>Salon cam kết với khách hàng</Text>
+      <Text className={classes.subtitle}>
+        Salon phục vụ làm đẹp cho khách hàng, đến khi hài lòng mà không phụ thu
+        thêm chi phí phát sinh. Sản phẩm phục vụ khách hàng là hàng chính hãng
       </Text>
-
-      <GalleryTabs />
-    </Container>
+    </Box>
   );
 }

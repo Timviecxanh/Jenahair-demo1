@@ -145,7 +145,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
 
-          {/* PHẦN ICONS: Tự co giãn theo số lượng icon */}
           <div className={classes.actionSection}>
             <Group gap={12} wrap="nowrap">
               <div className={classes.socialIcons}>
@@ -165,9 +164,9 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
 
               <div className={classes.verticalDivider} />
 
-              <ActionIcon variant="transparent" onClick={handleSearch}>
+              {/* <ActionIcon variant="transparent" onClick={handleSearch}>
                 <HiOutlineSearch size={35} color="#4b5d3f" />
-              </ActionIcon>
+              </ActionIcon> */}
 
               <ActionIcon variant="transparent" onClick={open}>
                 <FaListCheck size={35} color="#4b5d3f" />
@@ -176,7 +175,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
           </div>
         </div>
       </div>
-      {/* Phần Drawer hiện tại của bạn */}
       <Drawer
         opened={opened}
         onClose={close}
@@ -191,7 +189,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
       >
         <div className={classes.drawerDivider} />
 
-        {/* Chuyển Stack thành flex column với min-height để đẩy social xuống cuối */}
         <div
           style={{
             display: "flex",
@@ -202,7 +199,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
         >
           <Stack gap={0}>{renderMenuTree()}</Stack>
 
-          {/* Khu vực Social Icons hiển thị trong Drawer */}
           <div className={classes.drawerSocials}>
             <Text size="sm" c="dimmed" mb="md" ta="center">
               Kết nối với chúng tôi

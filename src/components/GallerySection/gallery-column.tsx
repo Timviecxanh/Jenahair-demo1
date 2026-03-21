@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Box, Stack } from "@mantine/core";
 import classes from "./gallery-column.module.scss";
-
+import { StaticImageData } from "next/image";
 type RatioType = "short" | "medium" | "tall" | "tallest";
 
 export type ImageItem = {

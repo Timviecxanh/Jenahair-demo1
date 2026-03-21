@@ -1,10 +1,8 @@
-"use client";
+import classes from "./intro-card-section.module.scss";
+import { SimpleGrid, Stack, Title, Text, Box } from "@mantine/core";
+import Image from "next/image";
 
-import React from "react";
-import { Container, Grid, Title, Text, Group, Box } from "@mantine/core";
-import styles from "./intro-card-section.module.scss";
-
-const services = [
+const SERVICES = [
   { label: "Cắt tóc nữ theo khuôn mặt" },
   { label: "Uốn tóc Xù Hippi" },
   { label: "Tẩy tóc", highlight: true },
@@ -19,49 +17,46 @@ const services = [
   { label: "Duỗi tóc hơi nước" },
 ];
 
-const IntroCardSection: React.FC = () => {
+export default function IntroCardSection() {
   return (
-    <Box component="section" className={styles.sectionWrapper}>
-      <Container size="lg" className={styles.container}>
-        <Grid gutter={50} align="center">
-          <Grid.Col span={{ base: 12, md: 5 }}>
-            <div className={styles.imageWrapper}>
-              <img
-                src="/images/IntroImage.png"
-                alt="Jena Hair Portrait"
-                className={styles.portraitImage}
-              />
-            </div>
-          </Grid.Col>
+    <Box className={classes.section}>
+      <SimpleGrid
+        cols={{ base: 1, md: 2 }}
+        spacing={{ base: 40, md: 80 }}
+        className={classes.container}
+      >
+        <Box className={classes.imageWrapper}>
+          <Image
+            src={"/images/IntroImage.png"}
+            alt="Jena Hair"
+            className={classes.image}
+            priority
+            width={500}
+            height={300}
+          />
+        </Box>
 
-          <Grid.Col span={{ base: 12, md: 7 }}>
-            <div className={styles.contentWrapper}>
-              <Title order={1} className={styles.mainTitle}>
-                Tiệm cắt tóc nữ <br />
-                <span className={styles.highlightText}>JENA HAIR</span>
-              </Title>
+        <Stack justify="center" className={classes.content}>
+          <Title order={2} className={classes.title}>
+            Tiệm cắt tóc nữ Jena Hair
+          </Title>
 
-              <Text className={styles.description} mt="md" mb="xl">
-                Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề, mang
-                đến vẻ đẹp lộng lẫy và sự tự tin cho phái đẹp tại Tân Phú.
-              </Text>
+          <Text className={classes.subtitle}>
+            Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề
+          </Text>
 
-              <Group gap="sm" className={styles.tagsGroup}>
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.tag} ${service.highlight ? styles.tagHighlight : styles.tagNormal}`}
-                  >
-                    {service.label}
-                  </div>
-                ))}
-              </Group>
-            </div>
-          </Grid.Col>
-        </Grid>
-      </Container>
+          <Box className={classes.serviceGrid}>
+            {SERVICES.map((service, index) => (
+              <div
+                key={index}
+                className={`${classes.serviceItem} ${service.highlight ? classes.tagHighlight : classes.tagNormal}`}
+              >
+                {service.label}
+              </div>
+            ))}
+          </Box>
+        </Stack>
+      </SimpleGrid>
     </Box>
   );
-};
-
-export default IntroCardSection;
+}
