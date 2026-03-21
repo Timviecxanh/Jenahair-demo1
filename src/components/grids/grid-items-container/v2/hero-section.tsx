@@ -16,8 +16,8 @@ export function HeroSection() {
               <span className={classes.jena}>Jena</span>
               <span className={classes.hair}> hair </span>
             </span>
-            <span className={classes.titleTop}>sứ mệnh làm bạn</span>
-            <span className={classes.break}>lộng lẫy</span>
+            {/* <span className={classes.titleTop}>sứ mệnh làm bạn</span> */}
+            {/* <span className={classes.break}>lộng lẫy</span> */}
           </Title>
 
           <Text className={classes.description}>

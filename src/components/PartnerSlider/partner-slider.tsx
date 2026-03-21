@@ -27,10 +27,10 @@ export default function PartnerSlider() {
             Sản phẩm cao cấp đồng hành
           </Title>
 
-          <Text className={classes.description}>
+          {/* <Text className={classes.description}>
             Chúng tôi chỉ sử dụng các dòng sản phẩm chính hãng, an toàn và
             chuyên nghiệp nhất cho mái tóc của bạn.
-          </Text>
+          </Text> */}
         </Stack>
       </Container>
 
