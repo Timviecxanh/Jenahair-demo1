@@ -1,7 +1,6 @@
 .heroWrapper {
   position: relative;
   width: 100%;
-  // Đặt nền màu tối, phòng khi màn hình quá rộng ảnh không lấp hết thì nhìn vẫn sang
   background-color: #1a1a1a;
   display: flex;
   justify-content: center;
@@ -26,18 +25,16 @@
 
 .bannerContainer {
   width: 100%;
-  max-width: 1920px; // Giới hạn không cho ảnh vỡ nét ở màn hình rạp chiếu phim
+  max-width: 1920px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .bannerImage {
-    // 3 DÒNG NÀY LÀ "THẦN CHÚ" ĐỂ ẢNH KHÔNG BỊ CẮT VÀ LUÔN ĐÚNG TỈ LỆ
     width: 100%;
     height: auto;
     object-fit: contain;
 
-    // Ép kích thước tối thiểu trên màn hình máy tính (Desktop)
     @media (min-width: 1024px) {
       min-width: 1259px;
       min-height: 786px;
