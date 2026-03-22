@@ -10,7 +10,6 @@ export default function LandingFooterV2() {
           align="flex-start"
           className={classes.content}
         >
-          {/* Cột trái */}
           <Box className={classes.leftCol}>
             <Text className={classes.label}>Nhận làm tóc theo lịch hẹn</Text>
             <Text className={classes.highlightText}>Booking: 0928278292</Text>

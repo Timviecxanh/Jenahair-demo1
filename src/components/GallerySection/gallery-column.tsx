@@ -38,4 +38,3 @@ export default function GalleryColumn({ images }: GalleryColumnProps) {
 function capitalize(value: string) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
-console.log(classes);

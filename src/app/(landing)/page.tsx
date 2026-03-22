@@ -13,8 +13,20 @@ import HeroSection from "@/components/grids/grid-items-container/v2/hero-section
 import PartnerSlider from "@/components/PartnerSlider/partner-slider";
 import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
 import GallerySection from "@/components/GallerySection/gallery-section";
+import type { ImageItem } from "@/components/GallerySection/gallery-column";
 
 export default async function LandingPage() {
+  const ALL_GALLERY_IMAGES: ImageItem[] = [
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "tallest" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+    { src: "/images/IntroImage.png", ratio: "short" },
+    { src: "/images/IntroImage.png", ratio: "medium" },
+  ];
   return (
     <>
       {/* <HeroSection />
@@ -25,9 +37,27 @@ export default async function LandingPage() {
       <HeroSection />
       <BrandIdentity />
       <PartnerSlider />
-      <IntroCardSection />
-      <GallerySection />
-
+      <IntroCardSection
+        title="Tiệm tóc Jena Hair"
+        subtitle=" Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề"
+        imageSrc="/images/IntroImage.png"
+        services={[
+          { label: "Cắt tóc nữ theo khuôn mặt" },
+          { label: "Uốn tóc Xù Hippi" },
+          { label: "Tẩy tóc", highlight: true },
+          { label: "Makeup Trang điểm", highlight: true },
+          { label: "Uốn tóc sóng lơi" },
+          { label: "Cắt tóc Tomboy" },
+          { label: "Phục hồi tóc hư tổn" },
+          { label: "Nhuộm tóc nữ", highlight: true },
+          { label: "Nhuộm tóc không tẩy" },
+          { label: "Cắt tóc ngắn" },
+          { label: "Duỗi tóc hơi nước" },
+          { label: "Uốn tóc Xù Hippi" },
+        ]}
+      />
+      {/* <IntroCardSection /> */}
+      <GallerySection images={ALL_GALLERY_IMAGES} />
       <LandingFooterV2 />
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Suspense fallback={<Loader size={48} />}>

@@ -164,12 +164,8 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
 
               <div className={classes.verticalDivider} />
 
-              {/* <ActionIcon variant="transparent" onClick={handleSearch}>
-                <HiOutlineSearch size={35} color="#4b5d3f" />
-              </ActionIcon> */}
-
               <ActionIcon variant="transparent" onClick={open}>
-                <FaListCheck size={35} color="#4b5d3f" />
+                <FaListCheck size={35} color="#F16406" />
               </ActionIcon>
             </Group>
           </div>

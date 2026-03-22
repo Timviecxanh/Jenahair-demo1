@@ -22,6 +22,8 @@
   }
 }
 
+
+
 .imageWrapper {
   border-radius: 20px;
   overflow: hidden;
@@ -36,9 +38,18 @@
 }
 
 .content {
-  color: #111;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+.serviceGrid {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+// .topContent {
+//   align-self: flex-start;
+// }
 .title {
 font-size: clamp(2rem, 4vw, 45px);
   font-weight: 700;
@@ -48,7 +59,6 @@ font-size: clamp(2rem, 4vw, 45px);
 .subtitle {
   font-size: 22px;
   margin-bottom: 25px;
-//   opacity: 0.8;
   color:#ffffff
 
 }
@@ -56,24 +66,19 @@ font-size: clamp(2rem, 4vw, 45px);
 .serviceGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 }
 
 .serviceItem {
   background: #f1f1f1;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 22px 20px;
+  border-radius: 14px;
   font-weight: 500;
   font-size: 22px;
   cursor: pointer;
   transition: all 0.25s ease;
   white-space: nowrap;
 
-//   &:hover {
-//     background: #ffffff;
-//     transform: translateY(-4px);
-//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-//   }
 
   @media (max-width: 768px) {
     white-space: normal;

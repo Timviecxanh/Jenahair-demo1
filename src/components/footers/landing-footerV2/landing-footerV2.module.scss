@@ -13,9 +13,9 @@
 .card {
   background-color: #929c89; 
   border-radius: 8px;
-  padding: 30px 40px;
+  padding: 20px 40px;
   width: 100%;
-  max-width: 1140px;
+  max-width: 1145px;
 //   height: 145px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
 }
@@ -53,13 +53,13 @@ display: flex;
 
 .label {
   font-size: 22px;
-  color: #455139; 
+  color: #121212; 
 }
 
 .highlightText {
   font-size: 45px;
   font-weight: 800;
-  color: var(--vinaup-moss); 
+  color:#455139; 
   line-height: 1.2;
   margin: 4px 0;
     text-shadow: none;

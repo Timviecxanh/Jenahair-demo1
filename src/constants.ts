@@ -33,7 +33,7 @@ export const VN_PROVINCES = [
   "Vinh Long",
   "Dong Thap",
   "Ca Mau",
-  "An Giang"
+  "An Giang",
 ];
 
 export const SERVICE_ITEMS = [
@@ -60,58 +60,59 @@ export const SERVICE_ITEMS = [
 ];
 
 export const StatusDisplayMap: Record<string, string> = {
-  ['public']: 'Public',
-  ['private']: 'Private',
+  ["public"]: "Public",
+  ["private"]: "Private",
 };
 
 export const HOTEL_TYPES = [
-  { value: '1-star', label: '1 star' },
-  { value: '2-star', label: '2 star' },
-  { value: '3-star', label: '3 star' },
-  { value: '4-star', label: '4 star' },
-  { value: '5-star', label: '5 star' },
+  { value: "1-star", label: "1 star" },
+  { value: "2-star", label: "2 star" },
+  { value: "3-star", label: "3 star" },
+  { value: "4-star", label: "4 star" },
+  { value: "5-star", label: "5 star" },
 ];
 
 export const HotelTypeDisplayMap: Record<string, string> = {
-  ['1-star']: '1 Star',
-  ['2-star']: '2 Star',
-  ['3-star']: '3 Star',
-  ['4-star']: '4 Star',
-  ['5-star']: '5 Star',
+  ["1-star"]: "1 Star",
+  ["2-star"]: "2 Star",
+  ["3-star"]: "3 Star",
+  ["4-star"]: "4 Star",
+  ["5-star"]: "5 Star",
 };
 
 export const ROOM_TYPES = [
-  { value: 'standard', label: 'Standard room' },
-  { value: 'superior', label: 'Superior room' },
-  { value: 'deluxe', label: 'Deluxe room' },
-  { value: 'family', label: 'Family room' },
-  { value: 'suite', label: 'Suite' },
+  { value: "standard", label: "Standard room" },
+  { value: "superior", label: "Superior room" },
+  { value: "deluxe", label: "Deluxe room" },
+  { value: "family", label: "Family room" },
+  { value: "suite", label: "Suite" },
 ];
 
 export const RoomTypeDisplayMap: Record<string, string> = {
-  ['standard']: 'Standard Room',
-  ['family']: 'Family Room',
-  ['superior']: 'Superior Room',
-  ['deluxe']: 'Deluxe Room',
-  ['suite']: 'Suite',
+  ["standard"]: "Standard Room",
+  ["family"]: "Family Room",
+  ["superior"]: "Superior Room",
+  ["deluxe"]: "Deluxe Room",
+  ["suite"]: "Suite",
 };
 
 export const PAGE_TYPES = [
-  { value: 'landing', label: 'Default' },
-  { value: 'contact', label: 'Contact' },
+  { value: "landing", label: "Default" },
+  { value: "contact", label: "Contact" },
 ];
 
 export const PageTypeDisplayMap: Record<string, string> = {
-  ['landing']: 'Default Page',
-  ['contact']: 'Contact Page',
+  ["landing"]: "Default Page",
+  ["contact"]: "Contact Page",
 };
 
 export const TOUR_BADGE_TYPES = [
-  { value: 'hot', label: 'Hot' },
-  { value: 'sale', label: 'Sale' },
-  { value: 'new', label: 'New' },
+  { value: "hot", label: "Hot" },
+  { value: "sale", label: "Sale" },
+  { value: "new", label: "New" },
 ];
 
 export const UPDATE_SORT_ORDER_OFFSET = 9999;
-export const OPEN_DESTINATIONS_POPOVER_EVENT = "stv:searchbar:open-destinations";
+export const OPEN_DESTINATIONS_POPOVER_EVENT =
+  "stv:searchbar:open-destinations";
 export const RECAPTCHA_SITE_KEY = "6LfRIjMsAAAAAAZn_uNvfpJzMvZBbRfAaFlf3iC2";

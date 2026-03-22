@@ -2,22 +2,24 @@ import classes from "./intro-card-section.module.scss";
 import { SimpleGrid, Stack, Title, Text, Box } from "@mantine/core";
 import Image from "next/image";
 
-const SERVICES = [
-  { label: "Cắt tóc nữ theo khuôn mặt" },
-  { label: "Uốn tóc Xù Hippi" },
-  { label: "Tẩy tóc", highlight: true },
-  { label: "Make up trang điểm", highlight: true },
-  { label: "Uốn tóc sóng lơi" },
-  { label: "Cắt tóc Tomboy" },
-  { label: "Phục hồi tóc hư tổn" },
-  { label: "Nhuộm tóc nữ", highlight: true },
-  { label: "Nhuộm tóc không tẩy" },
-  { label: "Cắt tóc ngắn" },
-  { label: "Uốn tóc Xù Hippi" },
-  { label: "Duỗi tóc hơi nước" },
-];
+interface ServiceItem {
+  label: string;
+  highlight?: boolean;
+}
 
-export default function IntroCardSection() {
+interface IntroCardProps {
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+  services: ServiceItem[];
+}
+
+export default function IntroCardSection({
+  title,
+  subtitle,
+  imageSrc,
+  services,
+}: IntroCardProps) {
   return (
     <Box className={classes.section}>
       <SimpleGrid
@@ -27,8 +29,8 @@ export default function IntroCardSection() {
       >
         <Box className={classes.imageWrapper}>
           <Image
-            src={"/images/IntroImage.png"}
-            alt="Jena Hair"
+            src={imageSrc}
+            alt={title}
             className={classes.image}
             priority
             width={500}
@@ -37,16 +39,19 @@ export default function IntroCardSection() {
         </Box>
 
         <Stack justify="center" className={classes.content}>
-          <Title order={2} className={classes.title}>
-            Tiệm cắt tóc nữ Jena Hair
-          </Title>
+          <div className={classes.topContent}>
+            <Title order={2} className={classes.title}>
+              {title}
+              {/* Tiệm cắt tóc nữ Jena Hair */}
+            </Title>
 
-          <Text className={classes.subtitle}>
-            Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề
-          </Text>
-
+            <Text className={classes.subtitle}>
+              {subtitle}
+              {/* Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề */}
+            </Text>
+          </div>
           <Box className={classes.serviceGrid}>
-            {SERVICES.map((service, index) => (
+            {services.map((service, index) => (
               <div
                 key={index}
                 className={`${classes.serviceItem} ${service.highlight ? classes.tagHighlight : classes.tagNormal}`}
