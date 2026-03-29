@@ -7,7 +7,7 @@
   z-index: 0;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
@@ -25,15 +25,15 @@
     z-index: 1;
   }
 
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: none;
+  // // &:hover {
+  // //   transform: scale(1.02);
+  // //   box-shadow: none;
 
-    &::before {
-      opacity: 1;
-      transform: rotate(-45deg) translateY(100%);
-    }
-  }
+  // //   &::before {
+  // //     opacity: 1;
+  // //     transform: rotate(-45deg) translateY(100%);
+  // //   }
+  // }
 }
 
 .image {

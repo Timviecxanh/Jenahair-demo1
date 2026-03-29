@@ -14,27 +14,37 @@ import PartnerSlider from "@/components/PartnerSlider/partner-slider";
 import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
 import GallerySection from "@/components/GallerySection/gallery-section";
 import type { ImageItem } from "@/components/GallerySection/gallery-column";
-
+import { LandingCarousel } from "@/components/primitives/landing-carousel/landing-carousel";
+import IMG1 from "../../../public/images/group1.png";
 export default async function LandingPage() {
-  const ALL_GALLERY_IMAGES: ImageItem[] = [
-    { src: "/images/IntroImage.png", ratio: "short" },
-    { src: "/images/IntroImage.png", ratio: "medium" },
-    { src: "/images/IntroImage.png", ratio: "medium" },
-    { src: "/images/IntroImage.png", ratio: "tallest" },
-    { src: "/images/IntroImage.png", ratio: "short" },
-    { src: "/images/IntroImage.png", ratio: "medium" },
-    { src: "/images/IntroImage.png", ratio: "medium" },
-    { src: "/images/IntroImage.png", ratio: "short" },
-    { src: "/images/IntroImage.png", ratio: "medium" },
+  // const ALL_GALLERY_IMAGES: ImageItem[] = [
+  //   { src: "/images/IntroImage.png", ratio: "short" },
+  //   { src: "/images/IntroImage.png", ratio: "medium" },
+  //   { src: "/images/IntroImage.png", ratio: "medium" },
+  //   { src: "/images/IntroImage.png", ratio: "tallest" },
+  //   { src: "/images/IntroImage.png", ratio: "short" },
+  //   { src: "/images/IntroImage.png", ratio: "medium" },
+  //   { src: "/images/IntroImage.png", ratio: "medium" },
+  //   { src: "/images/IntroImage.png", ratio: "short" },
+  //   { src: "/images/IntroImage.png", ratio: "medium" },
+  // ];
+
+  const mySlides = [
+    {
+      imageUrl: "/images/group1.png",
+    },
+    {
+      imageUrl: "/images/group1.png",
+    },
+    {
+      imageUrl: "/images/group1.png",
+    },
   ];
+
   return (
     <>
+      <LandingCarousel slides={mySlides} height={900} />;
       {/* <HeroSection />
-      <BrandIdentity />
-      <IntroCardSection />
-      <SingleColumnGallery />
-      <LandingFooterV2 /> */}
-      <HeroSection />
       <BrandIdentity />
       <PartnerSlider />
       <IntroCardSection
@@ -57,38 +67,38 @@ export default async function LandingPage() {
         ]}
       />
       {/* <IntroCardSection /> */}
-      <GallerySection images={ALL_GALLERY_IMAGES} />
-      <LandingFooterV2 />
+      {/* <GallerySection images={ALL_GALLERY_IMAGES} />
+      <LandingFooterV2 /> */}
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Suspense fallback={<Loader size={48} />}>
           {/* <SearchBar /> */}
         </Suspense>
         {/* <GridItemsContainerV2 /> */}
-        {/* <Stack gap="lg" mb={"xl"}>
-          <h1 className={classes.pageTitle}>Smash & Travel Vietnam (STV)</h1>
-          <Text lh={1.5} pl={54} pr={54} className={classes.pageSubtitle}>
-            Warm greetings from Smash & Travel Vietnam (STV) – a specialized
-            travel brand under Vietnam Incredible Land Tours (VIL), part of Viet
-            Han Trading Co., Ltd, proudly established since 2011...{" "}
-            <Link
-              className={classes.seeMoreLink}
-              href="https://jenahair.com/about"
-            >
-              See more
-            </Link>
-          </Text>
+        <Stack gap="lg" mb={"xl"}>
+          <div className={classes.wrapper}>
+            <h1 className={classes.mainLogo}>
+              <span className={classes.jena}>Jena</span>
+              <span className={classes.hair}>hair</span>
+            </h1>
+
+            <p className={classes.slogan}>
+              Jenahair là salon tóc quận Tân Phú, xuất thân từ nhà tạo mẫu tóc
+              được cấp bằng chứng nhận bởi thầy Iwata nhà tạo mẫu
+              <br className={classes.desktopBr} />
+              tóc Nhật Bản & với tình yêu đam mê tóc & sắc đẹp, Jena Hair sẽ làm
+              bạn lộng lẫy là sứ mệnh từng thành viên của salon
+            </p>
+          </div>
         </Stack>
-        <Stack gap={6} mb={"xl"} mt={56}>
+        {/* <Stack gap={6} mb={"xl"} mt={56}>
           <h2 className={classes.sectionTitle}>Our locations for you</h2>
           <h3 className={classes.sectionSubTitle}>
             Vietnam has many beautiful landscapes
           </h3>
-        </Stack>
+        </Stack> */}
 
-         <GridItemsContainerV2 />
-
+        {/* <GridItemsContainerV2 />
       </Container>
-
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <Stack gap={6} mb={"xl"}>
           <h2 className={classes.sectionTitle}>Our services</h2>

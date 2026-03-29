@@ -1,11 +1,15 @@
 .sectionWrapper {
-  background-color: #223328; 
+  background-color: #223328;
   padding: 60px 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .container {
-  max-width: 1140px; 
+  max-width: 1140px;
 }
 
 .imageWrapper {
@@ -19,7 +23,7 @@
   width: 100%;
   max-width: 420px;
   height: auto;
-  border-radius: 20px; 
+  border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -36,12 +40,12 @@
   letter-spacing: -1px;
 
   .highlightText {
-    color: #eda06e; 
+    color: #eda06e;
   }
 }
 
 .description {
-  color: #d1d5db; 
+  color: #d1d5db;
   font-size: 16px;
   line-height: 1.6;
   max-width: 90%;
@@ -49,12 +53,11 @@
 
 .tagsGroup {
   margin-top: 30px;
-
 }
 
 .tag {
   padding: 12px 20px;
- border-radius: 8px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: default;
@@ -91,16 +94,5 @@
 
   .tagsGroup {
     justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .mainTitle {
-    font-size: 32px;
-  }
-  
-  .tag {
-    padding: 10px 16px;
-    font-size: 13px;
   }
 }

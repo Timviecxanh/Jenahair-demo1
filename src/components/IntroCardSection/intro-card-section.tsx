@@ -42,13 +42,9 @@ export default function IntroCardSection({
           <div className={classes.topContent}>
             <Title order={2} className={classes.title}>
               {title}
-              {/* Tiệm cắt tóc nữ Jena Hair */}
             </Title>
 
-            <Text className={classes.subtitle}>
-              {subtitle}
-              {/* Jena phục vụ cắt tóc làm đầu trang điểm bằng tình yêu nghề */}
-            </Text>
+            <Text className={classes.subtitle}>{subtitle}</Text>
           </div>
           <Box className={classes.serviceGrid}>
             {services.map((service, index) => (
