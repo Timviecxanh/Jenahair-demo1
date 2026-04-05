@@ -1,18 +1,19 @@
 .sliderContainer {
   width: 100%;
-  overflow: hidden; 
-  padding: 40px 0;
+  overflow: hidden;
+  padding-bottom: 20px;
   background-color: transparent;
   display: flex;
   align-items: center;
   position: relative;
-
 }
 
 .partnerItem {
   display: flex;
   align-items: center;
-  padding: 0 30px; 
+  padding: 0 30px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .partnerText {
@@ -23,7 +24,4 @@
   white-space: nowrap;
   letter-spacing: 2px;
   transition: color 0.3s ease;
-
- 
 }
-

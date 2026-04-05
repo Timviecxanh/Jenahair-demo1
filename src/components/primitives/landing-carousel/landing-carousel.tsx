@@ -21,7 +21,7 @@ export interface CarouselSlide {
 interface LandingCarouselProps {
   slides: CarouselSlide[];
   showText?: boolean;
-  height?: number;
+  height?: number | string;
   loop?: boolean;
   orientation?: "horizontal" | "vertical";
 }
@@ -29,7 +29,7 @@ interface LandingCarouselProps {
 export function LandingCarousel({
   slides = [],
   showText = true,
-  height = 540,
+  height = "80vh",
   loop = true,
   orientation = "horizontal",
 }: LandingCarouselProps) {
@@ -129,7 +129,7 @@ export function LandingCarousel({
                 href={slide.href}
                 height={height}
                 borderRadius="0"
-                variant={"floating"} // Dùng variant mới
+                variant={"floating"}
                 priority={index === 0}
               />
             </Carousel.Slide>

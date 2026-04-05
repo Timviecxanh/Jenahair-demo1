@@ -26,7 +26,7 @@ import TiktokIcon from "@/components/icons/tiktok.svg";
 import InstagramIcon from "@/components/icons/instagram-icon.svg";
 import FaceBookIcon from "@/components/icons/facebook-icon.svg";
 import GoogleMapIcon from "@/components/icons/google-map.svg";
-
+import MenuIcon from "@/components/icons/menu-icon";
 interface SearchBarProps {
   logoUrl?: string;
   menusData: IMenuResponse[];
@@ -134,12 +134,13 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
           </div>
 
           <TextInput
+            id="search-input-unique-id"
             variant="unstyled"
             classNames={{
               input: classes.searchBarInput,
               root: classes.searchBarRoot,
             }}
-            placeholder="Search here..."
+            placeholder="Nhập Tìm Kiếm"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
@@ -165,7 +166,7 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
               <div className={classes.verticalDivider} />
 
               <ActionIcon variant="transparent" onClick={open}>
-                <FaListCheck size={35} color="#F16406" />
+                <MenuIcon size={30} color="#F16406" />
               </ActionIcon>
             </Group>
           </div>
@@ -177,10 +178,12 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
         position="right"
         size="xs"
         title={
-          <Link onClick={close} href="/" className={classes.homeLink}>
+          <Group gap={8} className={classes.homeLink} onClick={close}>
             <HomeIcon size={20} stroke="black" />
-            <span>Home</span>
-          </Link>
+            <Text fw={600} size="sm">
+              Home
+            </Text>
+          </Group>
         }
       >
         <div className={classes.drawerDivider} />

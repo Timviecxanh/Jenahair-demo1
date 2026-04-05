@@ -69,63 +69,57 @@
 // }
 
 .wrapper {
-  text-align: center;
-  padding: 35px 20px;
+  padding-top: 10px;
   color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media (max-width: 768px) {
-    padding: 40px 15px;
-  }
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .mainLogo {
-  font-size: clamp(60px, 20vw, 280px);
-  line-height: 1;
-  margin: 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  font-size: clamp(40px, 22vw, 250px);
+  line-height: 0.8;
   font-weight: 900;
   text-transform: capitalize;
 
   .jena {
     color: #bde5c0;
-    font-family:
-      "Apple LiGothic", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
-      sans-serif;
-    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    margin-left: -0.05em;
   }
 
   .hair {
     color: var(--vinaup-amber);
-    font-family:
-      "Apple LiGothic", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
-      sans-serif;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    margin-right: -0.02em;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    gap: 10px;
+    font-size: clamp(40px, 25vw, 80px);
   }
 }
 
 .slogan {
-  max-width: 1100px;
-  margin: 25px auto 0;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  opacity: 0.9;
-  font-weight: 300;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
 
-  display: block;
-  overflow: visible;
-
-  .desktopBr {
-    display: block;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-top: 15px;
-    padding: 0 10px;
-    max-width: 100%;
-    line-height: 1.6;
+@media (max-width: 480px) {
+  .slogan {
+    font-size: 14px;
+    padding: 0 16px;
   }
 }
