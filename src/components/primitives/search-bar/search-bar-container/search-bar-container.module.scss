@@ -3,11 +3,11 @@
   max-width: 100%;
 }
 .homeLink {
-  display: flex; // Bắt buộc phải có để gap hoạt động
-  align-items: center; // Căn giữa icon và chữ theo chiều dọc
+  display: flex;
+  align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #000; // Đảm bảo màu chữ hiển thị rõ
+  color: #000;
 
   span {
     font-weight: 600;

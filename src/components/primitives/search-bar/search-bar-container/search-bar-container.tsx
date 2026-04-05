@@ -1,32 +1,22 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import {
-  ActionIcon,
-  Group,
-  TextInput,
-  Drawer,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { ActionIcon, Group, TextInput } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useState, useMemo } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
-import { FaListCheck } from "react-icons/fa6";
+import { useState } from "react";
 import { Route } from "next";
-import Link from "next/link";
 import Image from "next/image";
 
 import classes from "./search-bar-container.module.scss";
 import { IMenuResponse } from "@/interfaces/menu-interface";
-import { TreeManager } from "@/helpers/tree-manager-helper";
-import HomeIcon from "@/components/icons/vinaup-home-icon";
+import { MenuDrawer } from "./../../landing-drawer/landing-drawer"; // Import component vừa tách
 
 import TiktokIcon from "@/components/icons/tiktok.svg";
 import InstagramIcon from "@/components/icons/instagram-icon.svg";
 import FaceBookIcon from "@/components/icons/facebook-icon.svg";
 import GoogleMapIcon from "@/components/icons/google-map.svg";
 import MenuIcon from "@/components/icons/menu-icon";
+
 interface SearchBarProps {
   logoUrl?: string;
   menusData: IMenuResponse[];
@@ -37,81 +27,6 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
   const params = useSearchParams();
   const [opened, { open, close }] = useDisclosure(false);
   const [searchQuery, setSearchQuery] = useState(params.get("q") || "");
-
-  const menuTreeManager = useMemo(() => {
-    return menusData.length > 0 ? new TreeManager(menusData) : null;
-  }, [menusData]);
-
-  const getMenuUrl = (menu: IMenuResponse): string => {
-    if (menu.targetType === "custom-url" && menu.customUrl) {
-      if (menu.customUrl === "") return "/";
-      if (!menu.customUrl.startsWith("http"))
-        return `https://${menu.customUrl}`;
-      return menu.customUrl;
-    }
-    return "/";
-  };
-
-  const renderMenuItem = (
-    menu: IMenuResponse,
-    depth: number = 0,
-    isRootChildren: boolean,
-  ): React.ReactNode => {
-    const url = getMenuUrl(menu);
-    const hasChildren = menu.children && menu.children.length > 0;
-    const isExternal =
-      menu.targetType === "custom-url" && menu.customUrl !== "";
-
-    const content = (
-      <span
-        className={
-          !hasChildren && !isRootChildren
-            ? classes.menuLabel
-            : classes.menuLabelParent
-        }
-      >
-        {menu.title}
-      </span>
-    );
-
-    return (
-      <div key={menu.id}>
-        {isExternal ? (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-            className={classes.menuItem}
-            style={{ paddingLeft: `${depth * 16 + 12}px` }}
-          >
-            {content}
-          </a>
-        ) : (
-          <Link
-            href={url as Route}
-            onClick={close}
-            className={classes.menuItem}
-            style={{ paddingLeft: `${depth * 16 + 12}px` }}
-          >
-            {content}
-          </Link>
-        )}
-        {hasChildren && (
-          <Stack gap={0}>
-            {menu.children?.map((child) =>
-              renderMenuItem(child, depth + 1, false),
-            )}
-          </Stack>
-        )}
-      </div>
-    );
-  };
-
-  const renderMenuTree = () => {
-    const root = menuTreeManager?.getRoot();
-    return root?.children?.map((menu) => renderMenuItem(menu, 0, true));
-  };
 
   const handleSearch = () => {
     const newParams = new URLSearchParams();
@@ -172,53 +87,8 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
           </div>
         </div>
       </div>
-      <Drawer
-        opened={opened}
-        onClose={close}
-        position="right"
-        size="xs"
-        title={
-          <Group gap={8} className={classes.homeLink} onClick={close}>
-            <HomeIcon size={20} stroke="black" />
-            <Text fw={600} size="sm">
-              Home
-            </Text>
-          </Group>
-        }
-      >
-        <div className={classes.drawerDivider} />
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "calc(100vh - 100px)",
-            justifyContent: "space-between",
-          }}
-        >
-          <Stack gap={0}>{renderMenuTree()}</Stack>
-
-          <div className={classes.drawerSocials}>
-            <Text size="sm" c="dimmed" mb="md" ta="center">
-              Kết nối với chúng tôi
-            </Text>
-            <Group justify="center" gap={20}>
-              <a href="#" className={classes.socialLink}>
-                <GoogleMapIcon width={28} height={28} />
-              </a>
-              <a href="#" className={classes.socialLink}>
-                <TiktokIcon width={28} height={28} />
-              </a>
-              <a href="#" className={classes.socialLink}>
-                <InstagramIcon width={28} height={28} />
-              </a>
-              <a href="#" className={classes.socialLink}>
-                <FaceBookIcon width={28} height={28} />
-              </a>
-            </Group>
-          </div>
-        </div>
-      </Drawer>
+      <MenuDrawer opened={opened} onClose={close} menusData={menusData} />
     </>
   );
 }

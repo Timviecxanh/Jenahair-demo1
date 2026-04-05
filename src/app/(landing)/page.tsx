@@ -1,21 +1,17 @@
 import SearchBar from "@/components/primitives/search-bar/search-bar";
 import classes from "./page.module.scss";
 import { Container, Loader, Stack, Text } from "@mantine/core";
-import VideoSection from "@/components/primitives/video-section/video-section";
-import GridItemsContainerV2 from "@/components/grids/grid-items-container/v2/grid-items-container-v2";
+
 import Link from "next/link";
 
 import { Suspense } from "react";
-import BrandIdentity from "@/components/BrandIdentity/brand-identity";
-import LandingFooterV2 from "@/components/footers/landing-footerV2/landing-footerV2";
 import Header from "@/components/headers/landing-header/landing-headerV2";
-import HeroSection from "@/components/grids/grid-items-container/v2/hero-section";
 import PartnerSlider from "@/components/PartnerSlider/partner-slider";
 import IntroCardSection from "@/components/IntroCardSection/intro-card-section";
 import GallerySection from "@/components/GallerySection/gallery-section";
 import type { ImageItem } from "@/components/GallerySection/gallery-column";
-import { LandingCarousel } from "@/components/primitives/landing-carousel/landing-carousel";
 import IMG1 from "../../../public/images/group1.png";
+import { LandingCarousel } from "@/components/primitives/landing-carousel/landing-carousel";
 import LandingFooter from "@/components/footers/landing-footer/landing-footer";
 export default async function LandingPage() {
   const ALL_GALLERY_IMAGES: ImageItem[] = [
