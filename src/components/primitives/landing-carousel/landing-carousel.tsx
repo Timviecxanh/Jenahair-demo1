@@ -9,6 +9,7 @@ import ImageCard from "../image-card/image-card";
 
 import { SearchBarContainer } from "../search-bar/search-bar-container/search-bar-container";
 import { IMenuResponse } from "@/interfaces/menu-interface";
+
 export interface CarouselSlide {
   titleMain?: string;
   titleHighlight?: string;
@@ -26,6 +27,49 @@ interface LandingCarouselProps {
   orientation?: "horizontal" | "vertical";
 }
 
+const FAKE_MENUS: IMenuResponse[] = [
+  {
+    id: "1",
+    title: "Trang chủ",
+    description: null,
+    targetType: "custom-url",
+    targetId: null,
+    customUrl: "/",
+    isRoot: true,
+    sortOrder: 1,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    children: [],
+  },
+  {
+    id: "2",
+    title: "Sản phẩm",
+    description: "Danh mục sản phẩm tóc",
+    targetType: "category",
+    targetId: "cat_001",
+    customUrl: null,
+    isRoot: true,
+    sortOrder: 2,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    children: [
+      {
+        id: "2-1",
+        title: "Tóc nối",
+        description: null,
+        targetType: "custom-url",
+        targetId: null,
+        customUrl: "/toc-noi",
+        isRoot: false,
+        sortOrder: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        children: [],
+      },
+    ],
+  },
+];
+
 export function LandingCarousel({
   slides = [],
   showText = true,
@@ -38,11 +82,9 @@ export function LandingCarousel({
 
   // Validate and normalize slides array
   const validSlides = Array.isArray(slides)
-    ? slides.filter((slide) => {
-        if (!slide || typeof slide !== "object") return false;
-        return true;
-      })
+    ? slides.filter((slide) => slide && typeof slide === "object")
     : slides;
+
   // Early return if no valid slides
   if (validSlides.length === 0) {
     return null;
@@ -51,56 +93,16 @@ export function LandingCarousel({
   const currentSlide = validSlides[active];
   const showTextBox =
     showText && (currentSlide?.titleMain || currentSlide?.subTitle);
-  const fakeMenus: IMenuResponse[] = [
-    {
-      id: "1",
-      title: "Trang chủ",
-      description: null,
-      targetType: "custom-url",
-      targetId: null,
-      customUrl: "/",
-      isRoot: true,
-      sortOrder: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      children: [],
-    },
-    {
-      id: "2",
-      title: "Sản phẩm",
-      description: "Danh mục sản phẩm tóc",
-      targetType: "category",
-      targetId: "cat_001",
-      customUrl: null,
-      isRoot: true,
-      sortOrder: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      children: [
-        {
-          id: "2-1",
-          title: "Tóc nối",
-          description: null,
-          targetType: "custom-url",
-          targetId: null,
-          customUrl: "/toc-noi",
-          isRoot: false,
-          sortOrder: 1,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          children: [],
-        },
-      ],
-    },
-  ];
+
   return (
     <div className={classes.landingCarouselWrapper}>
       <div className={classes.searchBarTopCenter}>
         <SearchBarContainer
           logoUrl="/images/group1.png"
-          menusData={fakeMenus}
+          menusData={FAKE_MENUS}
         />
       </div>
+
       <Carousel
         height={height}
         withIndicators={true}
@@ -123,15 +125,17 @@ export function LandingCarousel({
         {validSlides.map((slide, index) => {
           return (
             <Carousel.Slide pb={0} key={index}>
-              <ImageCard
-                title={slide.titleMain || ""}
-                imageUrl={slide.imageUrl}
-                href={slide.href}
-                height={height}
-                borderRadius="0"
-                variant={"floating"}
-                priority={index === 0}
-              />
+              <div className={classes.slideInner}>
+                <ImageCard
+                  title={slide.titleMain || ""}
+                  imageUrl={slide.imageUrl}
+                  href={slide.href}
+                  height={height}
+                  borderRadius="0"
+                  variant={"floating"}
+                  priority={index === 0}
+                />
+              </div>
             </Carousel.Slide>
           );
         })}

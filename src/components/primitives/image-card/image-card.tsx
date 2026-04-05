@@ -25,14 +25,13 @@ export default function ImageCard({
   borderRadius = "0.5rem",
   variant = "floating",
 }: ImageCardProps) {
-  
   const content = (
     <div
       className={classes.imageWrapper}
-      style={{ 
-        height: height || (aspectRatio ? "auto" : 320), 
-        aspectRatio, 
-        borderRadius 
+      style={{
+        height: height || (aspectRatio ? "auto" : 320),
+        aspectRatio,
+        borderRadius,
       }}
     >
       <Image
