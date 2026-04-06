@@ -11,14 +11,12 @@
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
   z-index: 0;
 
-  // Đặt chiều cao mặc định cho Desktop (lấy từ biến inline style nếu có)
   height: var(--card-height, 320px);
 
-  // KHU VỰC RESPONSIVE CHO KHUNG ẢNH TRÊN MOBILE
   @media (max-width: 768px) {
-    height: auto; // Bỏ chiều cao cứng
-    aspect-ratio: 16 / 9; // Ép khung về tỉ lệ chữ nhật ngang
-    background-color: #f4f4f4; // (Tùy chọn) Thêm màu nền vì dùng contain có thể lộ viền
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-color: #f4f4f4;
   }
 
   &::before {
@@ -74,7 +72,6 @@
   font-size: 1.1rem;
   z-index: 2;
 
-  // RESPONSIVE CHO CHỮ ĐỂ KHÔNG BỊ TO QUÁ TRÊN MOBILE
   @media (max-width: 768px) {
     font-size: 0.9rem;
     bottom: 0.8rem;

@@ -1,6 +1,6 @@
 import type { ImageItem } from "./gallery-column";
 import classes from "./gallery-section.module.scss";
-import { Group, Box, Text, Title } from "@mantine/core";
+import { Group, Box, Text, Title, Container } from "@mantine/core";
 import GalleryColumn from "./gallery-column";
 import Link from "next/link";
 
@@ -42,12 +42,14 @@ export default function GallerySection({ images }: GallerySectionProps) {
       <Link href={"#"} className={classes.footerBtn}>
         Xem tiếp
       </Link>
-      <Text className={classes.title}>Salon cam kết với khách hàng</Text>
-      <Text className={classes.subtitle}>
-        Salon phục vụ làm đẹp cho khách hàng, đến khi hài lòng mà không phụ thu
-        thêm chi phí phát sinh.
-        <br /> Sản phẩm phục vụ khách hàng là hàng chính hãng
-      </Text>
+      <div className={classes.desc}>
+        <Text className={classes.title}>Salon cam kết với khách hàng</Text>
+        <Text className={classes.subtitle}>
+          Salon phục vụ làm đẹp cho khách hàng, đến khi hài lòng mà không phụ
+          thu thêm chi phí phát sinh.
+          <br /> Sản phẩm phục vụ khách hàng là hàng chính hãng
+        </Text>
+      </div>
     </Box>
   );
 }
