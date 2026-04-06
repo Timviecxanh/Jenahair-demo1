@@ -1,15 +1,15 @@
-import { Route } from "next"
+import { Route } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function proxy(request: NextRequest) {
   // Check for auth cookie (atk = access token)
   const { pathname, searchParams } = request.nextUrl;
-  const authCookie = request.cookies.get('atk');
+  const authCookie = request.cookies.get("atk");
   const isAuthenticated = !!authCookie?.value;
 
-  if (searchParams.get('invalid') === '1') {
+  if (searchParams.get("invalid") === "1") {
     const response = NextResponse.redirect(new URL("/login", request.url));
-    response.cookies.delete('atk');
+    response.cookies.delete("atk");
     return response;
   }
 
@@ -24,11 +24,4 @@ export async function proxy(request: NextRequest) {
   }
 
   return NextResponse.next();
-}
-
-export const config: { matcher: Route[] } = {
-  matcher: [
-    "/adminup/:path*",
-    "/login"
-  ],
 }
