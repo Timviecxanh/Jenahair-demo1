@@ -40,7 +40,7 @@ export default async function LandingPage() {
 
   return (
     <>
-      <LandingCarousel slides={mySlides} height="85vh" />
+      <LandingCarousel slides={mySlides} height="80vh" />
 
       <Container size="1150px" px={0}>
         <Stack gap="lg" mb={"xl"}>

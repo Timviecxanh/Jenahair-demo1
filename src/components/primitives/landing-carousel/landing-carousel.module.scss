@@ -1,63 +1,19 @@
 .landingCarouselWrapper {
   position: relative;
   margin-bottom: 1rem;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    border-radius: 0.75rem;
-  }
-
-  &:hover::before {
-    opacity: 0;
-    backdrop-filter: blur(0);
-  }
 }
 
 .landingCarousel {
   overflow: hidden;
-
-  // FIX 2: Ép chiều cao lùn xuống trên Mobile để ảnh ngang không bị cắt xén
-  @media screen and (max-width: 992px) {
-    height: 60vh !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    height: 50vh !important;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 45vh !important;
-  }
+  height: auto !important;
 
   .cleanSlide {
     position: relative;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 225, 255, 0.2) 0%,
-      rgba(3, 255, 22, 0.2) 100%
-    );
   }
 
-  // Ép ImageCard bên trong cũng phải ăn theo chiều cao mới
   .slideInner {
-    height: 100%;
-    & > div {
-      @media screen and (max-width: 992px) {
-        height: 100% !important;
-      }
-    }
-  }
-
-  .image {
-    object-fit: cover;
+    width: 100%;
+    height: auto;
   }
 
   .indicators {
@@ -67,7 +23,6 @@
     transform: translateY(-50%);
     flex-direction: column;
 
-    // Fix position indicators trên mobile cho gọn
     @media screen and (max-width: 768px) {
       right: 1rem;
     }
@@ -85,47 +40,14 @@
   bottom: 2.5rem;
   left: 0;
   width: 100%;
-  z-index: 10; // Đảm bảo text luôn nằm trên ảnh
+  z-index: 10;
 
-  // FIX 3: Đẩy text lên cao một chút trên Mobile để không bị tụt khỏi khung
   @media screen and (max-width: 768px) {
     bottom: 1.5rem;
   }
 
   .textBoxContainer {
     text-align: left;
-
-    @media screen and (min-width: 576px) {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media screen and (min-width: 768px) {
-      margin-left: 36px;
-      margin-right: 36px;
-    }
-
-    @media screen and (min-width: 992px) {
-      margin-left: 48px;
-      margin-right: 48px;
-    }
-
-    @media screen and (min-width: 1200px) {
-      margin-left: 64px;
-      margin-right: 64px;
-    }
-
-    @media screen and (min-width: 1440px) {
-      max-width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media screen and (min-width: 1600px) {
-      max-width: 1440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     .textBoxGroup {
       .title {
@@ -134,7 +56,6 @@
         font-size: 3.2rem;
         line-height: 3.2rem;
         margin-bottom: 0.5rem;
-
         text-shadow:
           -1px -1px 0 #000,
           1px -1px 0 #000,
@@ -156,39 +77,15 @@
         font-size: 2.8rem;
         font-weight: 600;
         color: #00e1ff;
-        margin-bottom: 0.25rem;
-        text-shadow:
-          -1px -1px 0 rgba(0, 0, 0, 0.2),
-          1px -1px 0 rgba(0, 0, 0, 0.2),
-          -1px 1px 0 rgba(0, 0, 0, 0.2),
-          1px 1px 0 rgba(0, 0, 0, 0.2);
-
-        @media screen and (max-width: 768px) {
-          font-size: 2rem;
-          line-height: 2rem;
-        }
-
-        @media screen and (max-width: 576px) {
-          font-size: 1.4rem;
-          line-height: 1.4rem;
-        }
       }
 
       .subTitleText {
         color: #fff;
-        font-weight: 400;
         font-size: 1.375rem;
         text-shadow: 0px 1px 4px #01172d;
 
-        @media screen and (max-width: 768px) {
-          font-size: 1.2rem;
-          line-height: 1.2rem;
-        }
-
         @media screen and (max-width: 576px) {
           font-size: 1rem;
-          line-height: 1rem;
-          margin-top: 4px; // Tách nhẹ khỏi title
         }
       }
     }
@@ -199,17 +96,11 @@
   position: absolute;
   top: 20px;
   width: 1100px;
-
-  // FIX 4: Căn giữa tuyệt đối an toàn hơn
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
 
   @media screen and (max-width: 1100px) {
     width: 95%;
-  }
-
-  @media screen and (max-width: 768px) {
-    top: 12px; // Nhích lên trên xíu cho gọn
   }
 }

@@ -6,89 +6,19 @@ import classes from "./landing-carousel.module.scss";
 import { Container, Group } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 import ImageCard from "../image-card/image-card";
-
 import { SearchBarContainer } from "../search-bar/search-bar-container/search-bar-container";
-import { IMenuResponse } from "@/interfaces/menu-interface";
-
-export interface CarouselSlide {
-  titleMain?: string;
-  titleHighlight?: string;
-  subTitle?: string;
-  alt?: string;
-  imageUrl: string;
-  href?: string;
-}
-
-interface LandingCarouselProps {
-  slides: CarouselSlide[];
-  showText?: boolean;
-  height?: number | string;
-  loop?: boolean;
-  orientation?: "horizontal" | "vertical";
-}
-
-const FAKE_MENUS: IMenuResponse[] = [
-  {
-    id: "1",
-    title: "Trang chủ",
-    description: null,
-    targetType: "custom-url",
-    targetId: null,
-    customUrl: "/",
-    isRoot: true,
-    sortOrder: 1,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    children: [],
-  },
-  {
-    id: "2",
-    title: "Sản phẩm",
-    description: "Danh mục sản phẩm tóc",
-    targetType: "category",
-    targetId: "cat_001",
-    customUrl: null,
-    isRoot: true,
-    sortOrder: 2,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    children: [
-      {
-        id: "2-1",
-        title: "Tóc nối",
-        description: null,
-        targetType: "custom-url",
-        targetId: null,
-        customUrl: "/toc-noi",
-        isRoot: false,
-        sortOrder: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        children: [],
-      },
-    ],
-  },
-];
 
 export function LandingCarousel({
   slides = [],
   showText = true,
-  height = "80vh",
   loop = true,
   orientation = "horizontal",
-}: LandingCarouselProps) {
+}: any) {
   const [active, setActive] = useState(0);
   const autoplay = useRef(Autoplay({ delay: 3000 }));
 
-  // Validate and normalize slides array
-  const validSlides = Array.isArray(slides)
-    ? slides.filter((slide) => slide && typeof slide === "object")
-    : slides;
-
-  // Early return if no valid slides
-  if (validSlides.length === 0) {
-    return null;
-  }
+  const validSlides = Array.isArray(slides) ? slides.filter((s) => s) : [];
+  if (validSlides.length === 0) return null;
 
   const currentSlide = validSlides[active];
   const showTextBox =
@@ -97,17 +27,12 @@ export function LandingCarousel({
   return (
     <div className={classes.landingCarouselWrapper}>
       <div className={classes.searchBarTopCenter}>
-        <SearchBarContainer
-          logoUrl="/images/group1.png"
-          menusData={FAKE_MENUS}
-        />
+        <SearchBarContainer logoUrl="/images/group1.png" menusData={[]} />
       </div>
 
       <Carousel
-        height={height}
-        withIndicators={true}
+        withIndicators
         slideSize="100%"
-        slideGap="md"
         emblaOptions={{ loop, align: "center" }}
         onSlideChange={setActive}
         classNames={{
@@ -119,35 +44,29 @@ export function LandingCarousel({
         withControls={false}
         orientation={orientation}
         plugins={[autoplay.current]}
-        onMouseEnter={autoplay.current.stop}
-        onMouseLeave={() => autoplay.current.play()}
       >
-        {validSlides.map((slide, index) => {
-          return (
-            <Carousel.Slide pb={0} key={index}>
-              <div className={classes.slideInner}>
-                <ImageCard
-                  title={slide.titleMain || ""}
-                  imageUrl={slide.imageUrl}
-                  href={slide.href}
-                  height={height}
-                  borderRadius="0"
-                  variant={"floating"}
-                  priority={index === 0}
-                />
-              </div>
-            </Carousel.Slide>
-          );
-        })}
+        {validSlides.map((slide, index) => (
+          <Carousel.Slide key={index}>
+            <div className={classes.slideInner}>
+              <ImageCard
+                title={slide.titleMain || ""}
+                imageUrl={slide.imageUrl}
+                href={slide.href}
+                variant="floating"
+                priority={index === 0}
+              />
+            </div>
+          </Carousel.Slide>
+        ))}
       </Carousel>
 
       {showTextBox && (
         <div className={classes.textBoxWrapper}>
-          <Container className={classes.textBoxContainer} size={"xl"}>
+          <Container className={classes.textBoxContainer} size="xl">
             <Group
               justify="space-between"
               align="center"
-              classNames={{ root: classes.textBoxGroup }}
+              className={classes.textBoxGroup}
             >
               <div>
                 {currentSlide?.titleMain && (

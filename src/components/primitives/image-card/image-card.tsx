@@ -1,3 +1,5 @@
+"use client";
+
 import { Text } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,9 +10,6 @@ interface ImageCardProps {
   title: string;
   imageUrl: string;
   href?: string;
-  height?: number | string;
-  aspectRatio?: string;
-  borderRadius?: string;
   priority?: boolean;
   variant?: "floating" | "banner";
 }
@@ -19,28 +18,19 @@ export default function ImageCard({
   title,
   imageUrl,
   href,
-  height,
-  aspectRatio,
   priority = false,
-  borderRadius = "0.5rem",
   variant = "floating",
 }: ImageCardProps) {
   const content = (
-    <div
-      className={classes.imageWrapper}
-      style={{
-        height: height || (aspectRatio ? "auto" : 320),
-        aspectRatio,
-        borderRadius,
-      }}
-    >
+    <div className={classes.imageWrapper}>
       <Image
         src={imageUrl}
         alt={title}
         className={classes.image}
-        fill
+        width={0}
+        height={0}
+        sizes="100vw"
         priority={priority}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
 
       {variant === "floating" ? (

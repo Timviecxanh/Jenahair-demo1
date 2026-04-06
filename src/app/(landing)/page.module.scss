@@ -91,9 +91,9 @@
 
   font-size: clamp(40px, 22vw, 250px);
   line-height: 0.8;
-  font-weight: 900;
+  font-weight: 600;
   text-transform: capitalize;
-
+  text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
   .jena {
     color: #bde5c0;
     margin-left: -0.05em;
