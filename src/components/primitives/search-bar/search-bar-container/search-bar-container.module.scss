@@ -26,21 +26,35 @@
 }
 
 .logoSection {
-  flex-shrink: 0;
+  flex-shrink: 1; // Cho phép logo co lại nếu không gian quá hẹp
+  min-width: 0; // Tránh việc flex-item bị tràn nội dung
   display: flex;
   align-items: center;
 
   .logoText {
-    font-size: 1.75rem;
+    font-size: clamp(1.2rem, 3vw, 1.75rem);
     font-weight: 800;
     color: var(--vinaup-amber);
     white-space: nowrap;
     font-family: sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 40px;
   }
 }
 
 .searchBarRoot {
-  flex: 1;
+  flex: 2;
+  min-width: 0;
 }
 
 .searchBarInput {
@@ -49,35 +63,20 @@
   font-size: 1rem;
   background: transparent;
   border: none;
-  .input {
-    color: #000;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
   }
+
   &::placeholder {
     color: #121212;
     font-style: italic;
   }
 }
-
 .actionSection {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-}
-
-.socialIcons {
-  display: flex;
-  gap: 25px;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-.verticalDivider {
-  width: 1px;
-  height: 24px;
-  background-color: rgba(75, 93, 63, 0.3);
-  margin: 0 4px;
 }
 
 .socialLink {
@@ -85,8 +84,25 @@
   align-items: center;
   transition: transform 0.2s;
 
+  svg {
+    display: block;
+  }
+
   &:hover {
     transform: translateY(-2px);
+  }
+}
+
+.socialIcons {
+  display: flex;
+  gap: 25px;
+
+  @media (min-width: 769px) {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 
@@ -94,4 +110,10 @@
   padding: 20px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+
+  display: block;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
 }
