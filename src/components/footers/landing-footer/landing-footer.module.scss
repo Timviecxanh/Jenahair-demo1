@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 25px;
 
   backdrop-filter: blur(10px);
 
@@ -113,11 +113,11 @@
 .content {
   width: 100%;
   display: flex;
-  justify-content: space-between; // Desktop giữ nguyên
+  justify-content: space-between;
 
   @media (max-width: 768px) {
-    justify-content: center; // MOBILE: Chụm vào giữa
-    gap: 8px; // Giảm gap xuống nhỏ hơn nữa để nhường chỗ cho font to
+    justify-content: center;
+    gap: 8px;
   }
 }
 
@@ -127,9 +127,8 @@
   flex-direction: column;
   gap: 4px;
 
-  /* CHỈNH SỬA QUAN TRỌNG TẠI ĐÂY */
-  min-width: 0; // Bắt buộc phải để là 0 để nó không đẩy card ra ngoài
-  flex: 0 1 auto; // Cho phép cột tự co giãn theo nội dung nhưng không chiếm quá chỗ
+  min-width: 0;
+  flex: 0 1 auto;
 }
 
 .rightCol {
