@@ -11,7 +11,5 @@ export default async function SearchBar() {
   const logoUrl = configResponse.data?.logoUrl;
   const menusData = menusResponse.data ?? [];
 
-  return (
-    <SearchBarContainer logoUrl={logoUrl || undefined} menusData={menusData} />
-  );
+  return <SearchBarContainer menusData={menusData} />;
 }
