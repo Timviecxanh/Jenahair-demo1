@@ -113,37 +113,11 @@
 .content {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 150px;
-
-  @media (max-width: 1024px) {
-    gap: 40px;
-  }
+  justify-content: space-between; // Desktop giữ nguyên
 
   @media (max-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0px;
-    flex-wrap: nowrap;
-
-    .highlightText {
-      font-size: 25px;
-      white-space: nowrap;
-    }
-
-    .label,
-    .subText,
-    .link {
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .linkGroup {
-      gap: 4px;
-    }
-    .bookingPrefix {
-      display: none;
-    }
+    justify-content: center; // MOBILE: Chụm vào giữa
+    gap: 8px; // Giảm gap xuống nhỏ hơn nữa để nhường chỗ cho font to
   }
 }
 
@@ -152,9 +126,35 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-width: max-content;
+
+  /* CHỈNH SỬA QUAN TRỌNG TẠI ĐÂY */
+  min-width: 0; // Bắt buộc phải để là 0 để nó không đẩy card ra ngoài
+  flex: 0 1 auto; // Cho phép cột tự co giãn theo nội dung nhưng không chiếm quá chỗ
 }
 
 .rightCol {
   align-items: flex-end;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .highlightText {
+    font-size: clamp(20px, 5vw, 25px);
+    white-space: nowrap;
+
+    .bookingPrefix {
+      display: none;
+    }
+  }
+
+  .label,
+  .subText,
+  .link {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .card {
+    padding: 15px 4px !important;
+  }
 }

@@ -27,7 +27,7 @@ export function LandingCarousel({
   return (
     <div className={classes.landingCarouselWrapper}>
       <div className={classes.searchBarTopCenter}>
-        <SearchBarContainer logoUrl="/images/logo-stylez.png" menusData={[]} />
+        <SearchBarContainer logoText="JenaHair" menusData={[]} />
       </div>
 
       <Carousel

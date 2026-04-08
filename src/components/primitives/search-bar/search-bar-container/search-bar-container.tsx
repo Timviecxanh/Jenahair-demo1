@@ -1,15 +1,14 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { ActionIcon, Group, TextInput } from "@mantine/core";
+import { ActionIcon, Group, TextInput, Text } from "@mantine/core"; // Thêm Text từ Mantine
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { Route } from "next";
-import Image from "next/image";
 
 import classes from "./search-bar-container.module.scss";
 import { IMenuResponse } from "@/interfaces/menu-interface";
-import { MenuDrawer } from "./../../landing-drawer/landing-drawer"; // Import component vừa tách
+import { MenuDrawer } from "./../../landing-drawer/landing-drawer";
 
 import TiktokIcon from "@/components/icons/tiktok.svg";
 import InstagramIcon from "@/components/icons/instagram-icon.svg";
@@ -18,11 +17,14 @@ import GoogleMapIcon from "@/components/icons/google-map.svg";
 import MenuIcon from "@/components/icons/menu-icon";
 
 interface SearchBarProps {
-  logoUrl?: string;
+  logoText?: string;
   menusData: IMenuResponse[];
 }
 
-export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
+export function SearchBarContainer({
+  logoText = "Jenahair",
+  menusData,
+}: SearchBarProps) {
   const router = useRouter();
   const params = useSearchParams();
   const [opened, { open, close }] = useDisclosure(false);
@@ -41,11 +43,8 @@ export function SearchBarContainer({ logoUrl, menusData }: SearchBarProps) {
       <div className={classes.searchWrapper}>
         <div className={classes.customSearchBar}>
           <div className={classes.logoSection}>
-            {logoUrl ? (
-              <Image src={logoUrl} alt="Logo" width={40} height={40} />
-            ) : (
-              <span className={classes.logoText}>Jenahair</span>
-            )}
+            <Text className={classes.logoText}>{logoText} </Text>
+            <span className={classes.line}>|</span>
           </div>
 
           <TextInput

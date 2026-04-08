@@ -26,14 +26,14 @@
 }
 
 .logoSection {
-  flex-shrink: 1; // Cho phép logo co lại nếu không gian quá hẹp
-  min-width: 0; // Tránh việc flex-item bị tràn nội dung
+  flex-shrink: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
 
   .logoText {
-    font-size: clamp(1.2rem, 3vw, 1.75rem);
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 600;
     color: var(--vinaup-amber);
     white-space: nowrap;
     font-family: sans-serif;
@@ -43,6 +43,10 @@
     @media (max-width: 480px) {
       font-size: 1.1rem;
     }
+  }
+  .line {
+    font-size: 20px;
+    margin-left: 10px;
   }
 
   img {

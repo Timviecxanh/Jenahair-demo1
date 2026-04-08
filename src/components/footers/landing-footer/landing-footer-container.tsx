@@ -26,7 +26,6 @@ export default function LandingFooterContainer({
               <Link href="#" className={classes.link}>
                 Zalo
               </Link>
-
               <Link href="#" className={classes.link}>
                 Messenger
               </Link>
@@ -44,8 +43,8 @@ export default function LandingFooterContainer({
       <div className={classes.copyright}>
         <Text>
           <Link href="/" className={classes.brand}>
-            Jenahair{" "}
-          </Link>{" "}
+            Jenahair
+          </Link>
           © 2026 by Vinaup
         </Text>
       </div>

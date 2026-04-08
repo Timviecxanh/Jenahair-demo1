@@ -35,10 +35,10 @@
 .galleryGrid {
   width: 100%;
   max-width: 1120px;
-  gap: 19px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  gap: 30px;
 }
 
 .galleryGrid > * {
