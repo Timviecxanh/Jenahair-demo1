@@ -19,17 +19,13 @@
 
 .card {
   background: #ffffff5f;
-
   border-radius: 12px;
-  padding: 10px 10px;
+  padding: 20px;
   width: 100%;
-  max-width: 1145px;
-
+  max-width: 1200px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -99,7 +95,7 @@
   border-radius: 12px;
   padding: 20px 20px;
   width: 100%;
-  max-width: 1145px;
+  max-width: 1200px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -116,8 +112,7 @@
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    justify-content: center;
-    gap: 8px;
+    justify-content: space-between;
   }
 }
 
@@ -129,14 +124,27 @@
 
   min-width: 0;
   flex: 0 1 auto;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 }
 
+.leftCol,
 .rightCol {
   align-items: flex-end;
   text-align: right;
 }
 
 @media (max-width: 768px) {
+  .cutHairPrefix {
+    display: none;
+  }
+  .subText {
+    display: none;
+  }
+  .link {
+    display: none;
+  }
   .highlightText {
     font-size: clamp(20px, 5vw, 25px);
     white-space: nowrap;

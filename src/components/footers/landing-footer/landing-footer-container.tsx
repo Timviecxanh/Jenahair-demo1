@@ -17,11 +17,15 @@ export default function LandingFooterContainer({
       <div className={classes.card}>
         <div className={classes.content}>
           <div className={classes.leftCol}>
-            <Text className={classes.label}>Nhận làm tóc theo lịch hẹn</Text>
+            <Text className={classes.label}>
+              Nhận <span className={classes.cutHairPrefix}>làm tóc</span> theo
+              lịch hẹn
+            </Text>
             <Text className={classes.highlightText}>
               <span className={classes.bookingPrefix}>Booking: </span>
               {config?.phoneContact || "0981 824 770"}
             </Text>
+
             <div className={classes.linkGroup}>
               <Link href="#" className={classes.link}>
                 Zalo

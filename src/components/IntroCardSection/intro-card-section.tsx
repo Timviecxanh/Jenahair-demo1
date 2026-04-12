@@ -33,13 +33,13 @@ export default function IntroCardSection({
             height={450}
           />
         </div>
-
         <div className={classes.content}>
-          <Title order={2} className={classes.title}>
-            {title}
-          </Title>
-          <Text className={classes.subtitle}>{subtitle}</Text>
-
+          <div className={classes.group}>
+            <Title order={2} className={classes.title}>
+              {title}
+            </Title>
+            <Text className={classes.subtitle}>{subtitle}</Text>
+          </div>
           <div className={classes.serviceGrid}>
             {services.map((service, index) => (
               <div

@@ -1,7 +1,6 @@
 .wrapper {
   background-color: #455139;
-  padding: 40px 20px;
-
+  padding: 60px 16px; /* Padding an toàn */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,8 +8,8 @@
 
 .header {
   text-align: center;
-  max-width: 1100px;
-  margin-bottom: 60px;
+  max-width: 1200px; /* ĐỒNG BỘ 1200px */
+  margin-bottom: 50px;
 
   h2 {
     color: var(--vinaup-amber);
@@ -30,6 +29,55 @@
       text-decoration: underline;
     }
   }
+}
+
+.masonryGrid {
+  width: 100%;
+  max-width: 1200px; /* ĐỒNG BỘ 1200px */
+  column-count: 3; /* Chia 3 cột trên PC */
+  column-gap: 30px;
+  margin: 0 auto;
+
+  @media (max-width: 992px) {
+    column-count: 2; /* 2 cột trên Tablet */
+    column-gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    column-count: 1; /* 1 cột trên Mobile. Toàn bộ ảnh sẽ tự động xếp thẳng hàng, không bị ẩn ảnh nào! */
+    column-gap: 0;
+  }
+}
+
+.masonryItem {
+  break-inside: avoid; /* Chống việc 1 ảnh bị cắt làm đôi giữa 2 cột */
+  margin-bottom: 30px; /* Thay cho row-gap */
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ratioShort {
+  aspect-ratio: 3 / 2;
+}
+.ratioMedium {
+  aspect-ratio: 360 / 393;
+}
+.ratioTall {
+  aspect-ratio: 360 / 462;
+}
+.ratioTallest {
+  aspect-ratio: 360 / 587;
 }
 
 .galleryGrid {
@@ -52,6 +100,10 @@
   color: var(--vinaup-amber);
   cursor: pointer;
   font-weight: 500;
+
+  @media (max-width: 480px) {
+    margin-top: 25px;
+  }
 }
 
 .title {
@@ -64,9 +116,12 @@
 
 .desc {
   width: 100%;
-  max-width: 1150px;
+  max-width: 1200px;
   margin: 40px auto 0;
   text-align: center;
+  @media (max-width: 480px) {
+    margin-top: 25px;
+  }
 }
 .subtitle {
   color: #ffffff;
@@ -124,7 +179,7 @@
   }
 
   .title {
-    font-size: 24px;
+    font-size: 23px;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 15px;

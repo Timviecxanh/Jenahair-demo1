@@ -32,7 +32,8 @@
   align-items: center;
 
   .logoText {
-    font-size: 20px;
+    font-size: 25px;
+    -webkit-text-stroke: 0.3px #121212;
     font-weight: 600;
     color: var(--vinaup-amber);
     white-space: nowrap;
@@ -41,7 +42,7 @@
     text-overflow: ellipsis;
 
     @media (max-width: 480px) {
-      font-size: 1.1rem;
+      font-size: 1.6rem;
     }
   }
   .line {

@@ -42,7 +42,7 @@ export default async function LandingPage() {
     <>
       <LandingCarousel slides={mySlides} height="80vh" />
 
-      <Container size="1150px" px={0}>
+      <Container size="1200px" px={0}>
         <Stack gap="lg" mb={"xl"}>
           <div className={classes.wrapper}>
             <h1 className={classes.mainLogo}>
